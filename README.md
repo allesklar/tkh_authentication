@@ -26,7 +26,9 @@ Run the migration
 		
 You need a root route in your app but most apps have that already.
 
-And then of course restart your server!
+And then of course restart your server! Typically:
+
+		$ rails s
 
 
 ## Usage
