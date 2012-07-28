@@ -1,5 +1,5 @@
 require "tkh_authentication/version"
-require 'bcrypt-ruby'
+# require 'bcrypt-ruby'
 require 'simple_form'
 require 'stringex'
 

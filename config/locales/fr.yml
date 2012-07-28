@@ -181,11 +181,12 @@ fr:
   language_name: Français
   authentication:
     create_your_account: 'créez votre compte'
-    forgot_password: "mot de passe oublié ?"
+    forgot_password: "avez vous oublié votre mot de passe ?"
     login_confirmation: "Merci de vous être identifié !"
     login_now: "Identifiez-vous"
     logout: "déconnexion"
     logout_confirmation: "Merci pour votre visite."
+    not_registered: "vous n'avez pas encore de compte ?"
     password_reset_confirmation: "Votre mot de passe a été réinitialisé avec succès !"
     password_reset_email_subject: "Réinitialisation du mot de passe"
     reset_password_email_sent_confirmation: "Nous vous avons envoyé un lien pour réinitialiser votre mot de passe."
@@ -223,7 +224,7 @@ fr:
     new_password_confirmation: Confirmation du nouveau mot de passe
     
     not_authorized_alert: "Vous n'avez pas l'autorization d'acceder cette page. Vous avez été redirigé sur la page d'accueil."
-    not_registered: 'pas de compte ?'
+    
     or: ou
     password: mot de passe
     password_confirmation: confirmation du mot de passe

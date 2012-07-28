@@ -15,11 +15,12 @@ en:
   language_name: English
   authentication:
     create_account: 'create your account'
-    forgot_password: "forgot password?"
+    forgot_password: "forgot your password?"
     login_confirmation: "You have been logged in!"
     login_now: "log in"
     logout: "log out"
     logout_confirmation: "You have been logged out!"
+    not_registered: "you don't have an account yet?"
     password_reset_confirmation: "Your password has been successfully reset!"
     password_reset_email_subject: "Password reset"
     reset_instructions: "To reset your password, click or visit this link: %{reset_url}  \n\nIf you did not request your password to be reset, please ignore this email. Your password will stay as it is."
@@ -56,7 +57,7 @@ en:
     new_password_confirmation: New Password confirmation
 
     not_authorized_alert: "You are not authorized to access this page. You have been redirected to the home page."
-    not_registered: 'no account yet?'
+    
     or: "or"
     password: password
     password_confirmation: password confirmation
