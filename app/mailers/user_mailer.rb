@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   
-  if defined?(SETTINGS) && SETTINGS[:site_admin_email] 
-    default :from => SETTINGS[:admin_email]
+  if defined?(SETTINGS) && SETTINGS['site_admin_email'] 
+    default :from => SETTINGS['site_admin_email']
   else
     default :from => 'test@example.com'
   end
@@ -13,8 +13,8 @@ class UserMailer < ActionMailer::Base
   #
   def password_reset(user)  
     @user = user
-    if defined?(SETTINGS) && SETTINGS[:site_name]
-      mail :to => user.email, :subject => t('authentication.password_reset_email_subject') + ' | ' + SETTINGS[:site_name]
+    if defined?(SETTINGS) && SETTINGS['site_name']
+      mail :to => user.email, :subject => t('authentication.password_reset_email_subject') + ' | ' + SETTINGS['site_name']
     else
       mail :to => user.email, :subject => t('authentication.password_reset_email_subject')
     end
