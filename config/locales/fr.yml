@@ -1,0 +1,244 @@
+fr:
+  date:
+    formats:
+      short: "%e %b"
+      long: "%e %B %Y"
+      only_day: "%e"
+      simple_date: "%d %B"
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
+    order:
+      - :day
+      - :month
+      - :year
+  time:
+    formats:
+      informal: "à %H:%M"
+      default: "%a. %d %b %Y à %H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y à %H:%M"
+      just_time: "%H:%M"
+      
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "une demi-minute"
+      less_than_x_seconds:
+        zero: "moins d'une seconde"
+        one: "moins d'une seconde"
+        other: "moins de %{count} secondes"
+      x_seconds:
+        one: "1 seconde"
+        other: "%{count} secondes"
+      less_than_x_minutes:
+        zero: "moins d'une minute"
+        one: "moins d'une minute"
+        other: "moins de %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "environ une heure"
+        other: "environ %{count} heures"
+      x_days:
+        one: "1 jour"
+        other: "%{count} jours"
+      about_x_months:
+        one: "environ un mois"
+        other: "environ %{count} mois"
+      x_months:
+        one: "1 mois"
+        other: "%{count} mois"
+      about_x_years:
+        one: "environ un an"
+        other: "environ %{count} ans"
+      over_x_years:
+        one: "plus d'un an"
+        other: "plus de %{count} ans"
+      almost_x_years:
+        one: "presqu'un an"
+        other: "presque %{count} ans"
+    prompts:
+      year: "Année"
+      month: "Mois"
+      day: "Jour"
+      hour: "Heure"
+      minute: "Minute"
+      second: "Seconde"
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: ","
+        delimiter: " "
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "octet"
+            other: "octets"
+          kb: "ko"
+          mb: "Mo"
+          gb: "Go"
+          tb: "To"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "millier"
+          million: "million"
+          billion: "milliard"
+          trillion: "billion"
+          quadrillion: "million de milliards"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " et "
+      last_word_connector: " et "
+    select:
+      prompt: "Veuillez sélectionner"
+
+  helpers:
+    select:
+      prompt: "Veuillez sélectionner"
+    submit:
+      create: "Créer un %{model}"
+      update: "Modifier ce %{model}"
+      submit: "Enregistrer ce %{model}"
+
+  attributes:
+    created_at: "Créé le"
+    updated_at: "Modifié le"
+
+  errors:
+    format: "Le %{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "n'est pas inclus(e) dans la liste"
+      exclusion: "n'est pas disponible"
+      invalid: "n'est pas valide"
+      confirmation: "ne concorde pas avec la confirmation"
+      accepted: "doit être accepté(e)"
+      empty: "doit être rempli(e)"
+      blank: "doit être rempli(e)"
+      too_long: "est trop long (pas plus de %{count} caractères)"
+      too_short: "est trop court (au moins %{count} caractères)"
+      wrong_length: "ne fait pas la bonne longueur (doit comporter %{count} caractères)"
+      not_a_number: "n'est pas un nombre"
+      not_an_integer: "doit être un nombre entier"
+      greater_than: "doit être supérieur à %{count}"
+      greater_than_or_equal_to: "doit être supérieur ou égal à %{count}"
+      equal_to: "doit être égal à %{count}"
+      less_than: "doit être inférieur à %{count}"
+      less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
+      odd: "doit être impair"
+      even: "doit être pair"
+    template: &errors_template
+      header:
+        one: "Impossible d'enregistrer ce %{model} : 1 erreur"
+        other: "Impossible d'enregistrer ce %{model} : %{count} erreurs"
+      body: "Veuillez vérifier les champs suivants : "
+
+  activerecord:
+    errors:
+      messages:
+        taken: "n'est pas disponible"
+        record_invalid: "La validation a échoué : %{errors}"
+        <<: *errors_messages
+      template:
+        <<: *errors_template
+      full_messages:
+        format: "%{attribute} %{message}"
+  
+  # custom sections - the obove is provided by rails
+  language_name: Français
+  authentication:
+    create_your_account: 'créez votre compte'
+    forgot_password: "mot de passe oublié ?"
+    login_confirmation: "Merci de vous être identifié !"
+    login_now: "Identifiez-vous"
+    logout: "déconnexion"
+    logout_confirmation: "Merci pour votre visite."
+    password_reset_confirmation: "Votre mot de passe a été réinitialisé avec succès !"
+    password_reset_email_subject: "Réinitialisation du mot de passe"
+    reset_password_email_sent_confirmation: "Nous vous avons envoyé un lien pour réinitialiser votre mot de passe."
+    reset_your_password: "Réinitialisez votre mot de passe."
+    signup_confirmation: "Votre compte a été créé et vous êtes identifié !"
+    update_password: "Actualiser le mot de passe"
+    warning:
+      email_or_password_invalid: "La combinaison de l'addresse email et du mot de passe n'est pas correct"
+      login_needed: "Vous devez vous identifier pour accéder cette page. Vous avez été rediirigé à la page d'identification."
+      no_such_email: "Désolé nous n'avons pas d'utilisateur avec cette adresse email"
+      password_reset_expired: "Votre mot de passe n'a pu être réinitialisé car votre demande date de plus de 24 heures."
+    
+    
+    
+  # leaving these until I have used up all the ones I need.
+  access_control:  
+    already_signed_up_message: "Vous avez déjà un compte La Source. Veuillez vous identifier avec ce compte existant."
+    
+    email_hint: Cette adresse sera votre identifiant
+    email_must_be_valid: Vous devez entrer une adresse courriel avant d'envoyer votre demande
+
+    
+    have_an_account: 'vous avez un compte ?'
+    hello: bonjour
+    hello_name: "Bonjour %{name} ,"
+    invalid_email_or_password: "Erreur d'email ou de mot de passe. Veuillez vérifier vos données, les corriger et essayer à nouveau."
+    login: "s'identifier"
+    
+    
+    login_now_in_text: vous identifier
+
+    
+    my_profile: 'mon profil'
+    new_password: Nouveau mot de passe
+    new_password_confirmation: Confirmation du nouveau mot de passe
+    
+    not_authorized_alert: "Vous n'avez pas l'autorization d'acceder cette page. Vous avez été redirigé sur la page d'accueil."
+    not_registered: 'pas de compte ?'
+    or: ou
+    password: mot de passe
+    password_confirmation: confirmation du mot de passe
+
+ 
+    password_must_match_confirmation: 'Le mot de passe et sa confirmation doivent être identiques'
+    password_on_its_way: "Nous avons crée votre nouveau mot de passe et vous devriez le recevoir dans les 24 heures qui suivent à cette adresse : %{email_address}."
+    password_reset: Réinitialisation du mot de passe
+    please_log_in: Veuillez vous identifier pour voir votre information personnalisée.
+    phone_entry_request: "Si vous joignez un cours, nous vous serions reconnaissant de nous fournir au moins un numéro de téléphone."
+    remember_me: Souvenez-vous de moi
+    reset_instructions: "Pour réinitialiser votre mot de passe, cliquez sur le lien en-dessous :"
+    reset_instructions2: "Si vous n’avez pas demandé la réinitialisation de votre mot de passe, veuillez ignorer ce courriel. Votre mot de passe restera le même."
+    signup: "créer un compte"
+    
+    signup_now: "créez un compte"
+    
+    valid_email_needed: 'Veuillez nous fournir votre adresse email'

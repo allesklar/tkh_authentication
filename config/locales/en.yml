@@ -1,0 +1,77 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  date:
+    formats:
+      simple_date: "%B %d"
+  time:
+    formats:
+      informal: "at %H:%M"
+      default: "%a. %b. %d, '%y at %H:%M"
+      just_time: "%I:%M %p"
+      long: "%A %d %B %Y at %H:%M"
+  # custom sections - the obove is provided by rails
+  language_name: English
+  authentication:
+    create_account: 'create your account'
+    forgot_password: "forgot password?"
+    login_confirmation: "You have been logged in!"
+    login_now: "log in"
+    logout: "log out"
+    logout_confirmation: "You have been logged out!"
+    password_reset_confirmation: "Your password has been successfully reset!"
+    password_reset_email_subject: "Password reset"
+    reset_instructions: "To reset your password, click or visit this link: %{reset_url}  \n\nIf you did not request your password to be reset, please ignore this email. Your password will stay as it is."
+    reset_password_email_sent_confirmation: "We have emailed you a link to reset your password."
+    reset_your_password: "Reset Password"
+    signup_confirmation: "Your account has been created and you have been logged in!"
+    update_password: "Update Password"
+    warning:
+      email_or_password_invalid: "Email or password is invalid"
+      login_needed: "You must be logged in to access this page. You have been redirected to the log in form."
+      no_such_email: "We do not have any accounts with the email you have provided."
+      password_reset_expired: "Password reset has expired. There was a 24 hours grace period" 
+    
+    
+  # leaving these until I have used up all the ones I need.
+  access_control:  
+    already_signed_up_message: "You already have a La Source account. Please login to your existing account." 
+    email_hint: This address will be used as your login id
+    email_must_be_valid: Please enter a valid email address before submitting
+    
+    
+    have_an_account: 'have an account?'
+    hello: hello
+    hello_name: "Hi %{name},"
+    invalid_email_or_password: "Invalid email or password. Please double check your data, modify it, and resubmit the form"
+    login: "log in"
+    
+    
+    login_now_in_text: log in here
+    
+    
+    my_profile: 'my profile'
+    new_password: New Password
+    new_password_confirmation: New Password confirmation
+
+    not_authorized_alert: "You are not authorized to access this page. You have been redirected to the home page."
+    not_registered: 'no account yet?'
+    or: "or"
+    password: password
+    password_confirmation: password confirmation
+
+
+    password_must_match_confirmation: 'the password and the password confirmation must match'
+    password_on_its_way: "A new password has been generated. It will be emailed within 24 hours to %{email_address}."
+    password_reset: Password reset
+    phone_entry_request: "If enrolling in a course, we would appreciate at least one phone number."
+    please_log_in: Please log in to see your personal information.
+    remember_me: "stay logged in"
+    
+    
+    signup: "create an account"
+    
+    signup_now: "create an account"
+
+    valid_email_needed: 'Please enter a valid email address'
