@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
   
   validates_uniqueness_of :email, :case_sensitive => false
-  validates_presence_of :password
+  validates_presence_of :password, on: :create
   validates_presence_of :first_name
   validates_presence_of :last_name
   
