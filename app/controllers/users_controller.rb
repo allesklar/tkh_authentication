@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  
+  def index
+    @users = User.by_recent
+    render layout: 'admin'
+  end
 
   def new
     @user = User.new
