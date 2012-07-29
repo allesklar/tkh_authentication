@@ -1,6 +1,6 @@
 # TKH Authentication
 
-This is a Rails engine which provides an app with basic authentication. It is based on Railscasts 250 and 274.
+This is a Rails engine which provides basic authentication. It is based on Railscasts 250 and 274.
 
 Primarily developed for Ten Thousand Hours but we are happy to share if anybody finds it useful.
 
@@ -43,6 +43,12 @@ A starting point could be:
 To display the login information module anywhere in your views
 
 		$ render 'shared/login_info'
+		
+At this point the user only needs to be authenticated to access any area. We are coming up with an authorization solution as well. To restrict access to your controllers, you can do any of the following:
+
+		$ before_filter :authenticate
+		before_filter :authenticate, :only => [ 'new', 'edit']
+		before_filter :authenticate, :except => 'show'
 
 
 ## Contributing
