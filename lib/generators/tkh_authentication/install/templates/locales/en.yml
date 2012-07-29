@@ -30,7 +30,7 @@ en:
     update_password: "Update Password"
     warning:
       email_or_password_invalid: "Email or password is invalid"
-      login_needed: "You must be logged in to access this page. You have been redirected to the log in form."
+      login_needed: "You must be logged in to access this page. You have been redirected to the login form."
       no_such_email: "We do not have any accounts with the email you have provided."
       password_reset_expired: "Password reset has expired. There was a 24 hours grace period" 
     
