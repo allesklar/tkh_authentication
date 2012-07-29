@@ -26,7 +26,7 @@ Run the migration
 		
 You need a root route in your app but most apps have that already.
 
-And then of course restart your server! Typically:
+And then of course restart your server!
 
 		$ rails s
 
@@ -39,6 +39,10 @@ A starting point could be:
     $ /login
 
 ... and it should work out of the box.
+
+To display the login information module anywhere in your views
+
+		$ render 'shared/login_info'
 
 
 ## Contributing
