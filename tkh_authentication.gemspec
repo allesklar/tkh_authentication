@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = TkhAuthentication::VERSION
   s.authors     = ["Swami Atma"]
   s.email       = ["swami@TenThousandHours.eu"]
-  s.homepage    = "http://tenthousandhours.eu"
+  s.homepage    = "https://github.com/allesklar/tkh_authentication"
   s.summary     = "Simple authentication Rails engine."
   s.description = "A Rails engine for access control authentication customized for Ten Thousand Hours."
 
