@@ -21,6 +21,8 @@
   <div class="actions"><%= submit_tag t('authentication.login_now') %></div>
 <% end %>
 
+Testing the current_user helper: <%= current_user ? "logged in as #{current_user.email}" : "not logged in" %>
+
 
 
 
