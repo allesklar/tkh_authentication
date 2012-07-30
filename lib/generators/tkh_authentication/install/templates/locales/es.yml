@@ -1,22 +1,32 @@
 es:
   language_name: "Español"
+  
+  activerecord: 
+      attributes:
+        user:
+          first_name: "nombre de pila"
+          last_name: "apellido"
+          email: "email"
+          password: 'contraseña'
+          password_confirmation: 'confirmar contraseña'
+          
   authentication:
-    create_account: 'create your account'
-    forgot_password: "forgot your password?_es"
-    login_confirmation: "You have been logged in!"
-    login_now: "log in"
-    logout: "log out"
-    logout_confirmation: "You have been logged out!"
-    not_registered: "you don't have an account yet?"
-    password_reset_confirmation: "Your password has been successfully reset!"
-    password_reset_email_subject: "Password reset"
-    reset_instructions: "To reset your password, click or visit this link: %{reset_url}  \n\nIf you did not request your password to be reset, please ignore this email. Your password will stay as it is."
-    reset_password_email_sent_confirmation: "We have emailed you a link to reset your password."
-    reset_your_password: "Reset Password"
-    signup_confirmation: "Your account has been created and you have been logged in!"
-    update_password: "Update Password"
+    create_account: 'crea tu cuenta'
+    forgot_password: '¿olvidaste tu contraseña?'
+    login_confirmation: 'Conectado con éxito'
+    login_now: "conectar"
+    logout: "salir"
+    logout_confirmation: 'Se ha cerrado la sesión'
+    not_registered: 'no tienes una cuenta todavía'
+    password_reset_confirmation: 'Tu contraseña se ha restablecido correctamente.'
+    password_reset_email_subject: 'Restablecimiento de contraseña.'
+    reset_instructions: "Para restablecer tu contraseña click o visita este enlace: %{reset_url}  \n\n si no has pedido que se reestablezca tu contraseña, por favor ignora este e-mail. Tu contraseña seguirá igual."
+    reset_password_email_sent_confirmation: 'Te hemos enviado un enlace para reestablecer tu contraseña.'
+    reset_your_password: 'Restablece tu contraseña.'
+    signup_confirmation:  'Hemos creado tu cuenta y ya estas conectado.'
+    update_password: 'Actualiza tu contraseña.'
     warning:
-      email_or_password_invalid: "Email or password is invalid"
-      login_needed: "You must be logged in to access this page. You have been redirected to the log in form."
-      no_such_email: "We do not have any accounts with the email you have provided."
-      password_reset_expired: "Password reset has expired. There was a 24 hours grace period"
+      email_or_password_invalid: 'Correo electrónico o contraseña no válidos'
+      login_needed: 'Tienes que estar conectado para acceder a esta pagina. Te redirijimos al formulario para conectar.'
+      no_such_email:  'No existe ninguna cuenta con el correo electronico que nos has proporcionado.'
+      password_reset_expired: 'El reestablecimiento de la contraseña ha caducado. Tienes 24 horas para intentarlo otra vez.'
