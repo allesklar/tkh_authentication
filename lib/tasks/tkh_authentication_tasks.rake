@@ -5,6 +5,3 @@ namespace :tkh_authentication do
     system 'rails g tkh_authentication:create_or_update_locales'
   end
 end
-
-
-

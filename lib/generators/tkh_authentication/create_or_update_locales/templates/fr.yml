@@ -179,6 +179,17 @@ fr:
   
   # custom sections - the obove is provided by rails
   language_name: Français
+  
+  
+  activerecord: 
+      attributes:
+        user:
+          first_name: "prénom"
+          last_name: "nom de famille"
+          email: "courriel"
+          password: 'mot de passe'
+          password_confirmation: 'confirmation de mot de passe'
+          
   authentication:
     create_your_account: 'créez votre compte'
     forgot_password: "avez vous oublié votre mot de passe ?"
