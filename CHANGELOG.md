@@ -2,11 +2,9 @@
 
 
 
-## 0.0.x
+## 0.0.5
 
-* Users controller has both an authenticate and an authenticate_with_admin filter
-
-
+* Users controller has both an authenticate and an authenticate_with_admin before_filters
 
 
 ## 0.0.4
