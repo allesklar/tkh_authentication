@@ -2,6 +2,13 @@
 
 
 
+## 0.0.x
+
+* Users controller has both an authenticate and an authenticate_with_admin filter
+
+
+
+
 ## 0.0.4
 
 * Added an install rake task to run the migration and locale generators

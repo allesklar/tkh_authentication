@@ -52,7 +52,7 @@ At this point the user only needs to be authenticated to access any area. We are
 
 		before_filter :authenticate
 		
-If you want to restrict access to users whose admin boolean attribute is true
+Additionally, if you want to restrict access to users whose admin boolean attribute is true, add this line just below the authenticate one.
 
 		before_filter :authenticate_with_admin
 
