@@ -48,13 +48,13 @@ To display the login information module anywhere in your views
 
 		render 'shared/login_info'
 		
-At this point the user only needs to be authenticated to access any area. We are coming up with an authorization solution as well. To restrict access to your controllers:
+Ifo restrict access to your controllers to logged in users:
 
-		before_filter :authenticate
+		before_filter :authenticate, except: 'show'
 		
 Additionally, if you want to restrict access to users whose admin boolean attribute is true, add this line just below the authenticate one.
 
-		before_filter :authenticate_with_admin
+		before_filter :authenticate_with_admin, except: [ 'show', 'index' ]
 
 
 ## Contributing
