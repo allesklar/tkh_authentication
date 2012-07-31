@@ -17,7 +17,7 @@ module TkhAuthentication
  
       def copy_migrations
         puts 'creating user migration'
-        migration_template "create_users.rb", "db/migrate/create_users2.rb"
+        migration_template "create_users.rb", "db/migrate/create_users.rb"
       end
  
     end
