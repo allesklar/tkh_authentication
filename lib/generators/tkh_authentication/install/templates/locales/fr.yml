@@ -198,6 +198,7 @@ fr:
       login_needed: "Vous devez vous identifier pour accéder cette page. Vous avez été rediirigé à la page d'identification."
       no_such_email: "Désolé nous n'avons pas d'utilisateur avec cette adresse email"
       password_reset_expired: "Votre mot de passe n'a pu être réinitialisé car votre demande date de plus de 24 heures."
+      restricted_access: "Cette partie du site est réservée aux administrateurs. Veuillez demander l'autorisation au propriétaire du site."
     
     
     

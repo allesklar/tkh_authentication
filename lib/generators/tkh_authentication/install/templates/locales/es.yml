@@ -30,3 +30,4 @@ es:
       login_needed: 'Tienes que estar conectado para acceder a esta pagina. Te redirijimos al formulario para conectar.'
       no_such_email:  'No existe ninguna cuenta con el correo electronico que nos has proporcionado.'
       password_reset_expired: 'El reestablecimiento de la contraseña ha caducado. Tienes 24 horas para intentarlo otra vez.'
+      restricted_access: "Esta parte del sitio está reservado para los administradores. Por favor, pedir permiso al propietario del sitio."

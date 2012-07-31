@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate, only: 'index'
+  before_filter :authenticate_with_admin, only: 'index'
   
   def index
     @users = User.by_recent

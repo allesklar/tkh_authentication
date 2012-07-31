@@ -13,5 +13,9 @@ module TkhAuthenticationActionControllerExtension
     def authenticate
       redirect_to login_url, alert: t('authentication.warning.login_needed') if current_user.nil?
     end
+    
+    def authenticate_with_admin
+      redirect_to root_url, alert: t('authentication.warning.restricted_access') unless current_user && current_user.admin?
+    end
   end
 end

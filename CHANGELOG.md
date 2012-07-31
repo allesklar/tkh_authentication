@@ -2,6 +2,12 @@
 
 
 
+## 0.0.x
+
+* 
+
+
+
 ## 0.0.2
 
 * Populated all Spanish translations
