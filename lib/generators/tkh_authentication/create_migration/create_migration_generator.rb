@@ -2,7 +2,7 @@ require 'rails/generators/migration'
  
 module TkhAuthentication
   module Generators
-    class InstallGenerator < ::Rails::Generators::Base
+    class CreateMigrationGenerator < ::Rails::Generators::Base
       include Rails::Generators::Migration
       source_root File.expand_path('../templates', __FILE__)
       desc "add the migrations and locale files"
@@ -17,14 +17,7 @@ module TkhAuthentication
  
       def copy_migrations
         puts 'creating user migration'
-        migration_template "create_users.rb", "db/migrate/create_users.rb"
-      end
-      
-      def copy_locales
-        puts 'creating locale files'
-        I18n.available_locales.each do |l|
-          copy_file "locales/#{l.to_s}.yml", "config/locales/tkh_authentication.#{l.to_s}.yml"
-        end
+        migration_template "create_users.rb", "db/migrate/create_users2.rb"
       end
  
     end
