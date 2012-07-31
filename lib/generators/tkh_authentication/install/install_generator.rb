@@ -22,8 +22,6 @@ module TkhAuthentication
       
       def copy_locales
         puts 'creating locale files'
-        # copy_file "locales/en.yml", "config/locales/tkh_authentication.en.yml"
-        # copy_file "locales/fr.yml", "config/locales/tkh_authentication.fr.yml"
         I18n.available_locales.each do |l|
           copy_file "locales/#{l.to_s}.yml", "config/locales/tkh_authentication.#{l.to_s}.yml"
         end

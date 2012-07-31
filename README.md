@@ -29,6 +29,10 @@ You need a root route in your app but most apps have that already.
 And then of course restart your server!
 
 		$ rails s
+		
+Upon upgrading to a new version of the gem you might have to update the translation files
+
+		$ rails g tkh_authentication:update_locales -f
 
 
 ## Usage
@@ -42,13 +46,15 @@ A starting point could be:
 
 To display the login information module anywhere in your views
 
-		$ render 'shared/login_info'
+		render 'shared/login_info'
 		
-At this point the user only needs to be authenticated to access any area. We are coming up with an authorization solution as well. To restrict access to your controllers, you can do any of the following:
+At this point the user only needs to be authenticated to access any area. We are coming up with an authorization solution as well. To restrict access to your controllers:
 
-		$ before_filter :authenticate
-		before_filter :authenticate, :only => [ 'new', 'edit']
-		before_filter :authenticate, :except => 'show'
+		before_filter :authenticate
+		
+If you want to restrict access to users whose admin boolean attribute is true
+
+		before_filter :authenticate_with_admin
 
 
 ## Contributing

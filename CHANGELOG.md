@@ -2,10 +2,10 @@
 
 
 
-## 0.0.x
+## 0.0.3
 
-* 
-
+* Added an authenticate_as_admin controller method and its translations
+* Added a generator to update tkh_authentication locales in the host app
 
 
 ## 0.0.2
