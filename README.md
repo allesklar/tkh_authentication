@@ -18,7 +18,7 @@ And then execute:
 
 Import migration and locale files
 
-		$ rails g tkh_authentication:install
+		$ rake tkh_authentication:install
 		
 Run the migration
 
@@ -32,7 +32,7 @@ And then of course restart your server!
 		
 Upon upgrading to a new version of the gem you might have to update the translation files
 
-		$ rails g tkh_authentication:update_locales -f
+		$ rails g tkh_authentication:create_or_update_locales -f
 
 
 ## Usage

@@ -2,6 +2,12 @@
 
 
 
+## 0.0.4
+
+* Added an install rake task to run the migration and locale generators
+* Refactored generators to give them more flexibility
+
+
 ## 0.0.3
 
 * Added an authenticate_as_admin controller method and its translations
