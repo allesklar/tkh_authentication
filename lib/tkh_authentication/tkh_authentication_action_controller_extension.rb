@@ -1,8 +1,6 @@
 module TkhAuthenticationActionControllerExtension
   def self.included(base)
     base.send(:include, InstanceMethods) 
-    # base.before_filter :authenticate
-    # base.after_filter :my_method_2
   end
 
   module InstanceMethods
@@ -11,11 +9,17 @@ module TkhAuthenticationActionControllerExtension
     end
 
     def authenticate
-      redirect_to login_url, alert: t('authentication.warning.login_needed') if current_user.nil?
+      if current_user.nil?
+        session[:target_page] = request.url
+        redirect_to login_url, alert: t('authentication.warning.login_needed')
+      end
     end
     
     def authenticate_with_admin
-      redirect_to root_url, alert: t('authentication.warning.restricted_access') unless current_user && current_user.admin?
+      unless current_user && current_user.admin?
+        session[:target_page] = request.url if session[:target_page].nil?
+        redirect_to root_url, alert: t('authentication.warning.restricted_access')
+      end
     end
   end
 end

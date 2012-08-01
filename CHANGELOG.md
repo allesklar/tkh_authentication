@@ -2,6 +2,13 @@
 
 
 
+
+## 0.0.6
+
+* Redirect users to target page upon logging in if they had been interrupted by authenticate or authenticate_with_admin filters
+
+
+
 ## 0.0.5
 
 * Users controller has both an authenticate and an authenticate_with_admin before_filters

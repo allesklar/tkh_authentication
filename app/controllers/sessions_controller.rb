@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      redirect_to root_url, notice: t('authentication.login_confirmation')
+      redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
+      session[:target_page] = nil
     else
       flash.now.alert = t('authentication.warning.email_or_password_invalid')
       render "new"

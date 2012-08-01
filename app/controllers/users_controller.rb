@@ -16,7 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       cookies[:auth_token] = @user.auth_token
-      redirect_to root_url, notice: t('authentication.signup_confirmation')
+      redirect_to session[:target_page] || root_url, notice: t('authentication.signup_confirmation')
+      session[:target_page] = nil
     else
       render "new"
     end
