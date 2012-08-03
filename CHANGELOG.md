@@ -2,11 +2,14 @@
 
 
 
+## 0.0.7
+
+* Safe redirect to root if host app did not set up the root route
+
 
 ## 0.0.6
 
 * Redirect users to target page upon logging in if they had been interrupted by authenticate or authenticate_with_admin filters
-
 
 
 ## 0.0.5
