@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # not allowed are :admin:boolean, :auth_token:string, password_reset_token:string, password_reset_sent_at:datetime
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
   
+  validates_presence_of :email
   validates_uniqueness_of :email, :case_sensitive => false
   validates_presence_of :password, on: :create
   validates_presence_of :first_name

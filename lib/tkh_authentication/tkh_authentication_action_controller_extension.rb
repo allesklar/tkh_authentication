@@ -18,8 +18,14 @@ module TkhAuthenticationActionControllerExtension
     def authenticate_with_admin
       unless current_user && current_user.admin?
         session[:target_page] = request.url if session[:target_page].nil?
-        redirect_to root_url, alert: t('authentication.warning.restricted_access')
+        redirect_to safe_root_url, alert: t('authentication.warning.restricted_access')
       end
+    end
+    
+    private
+    
+    def safe_root_url
+      defined?(root_url) ? root_url : '/'
     end
   end
 end
