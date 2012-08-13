@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
+  has_many :pages
+  
   # not allowed are :admin:boolean, :auth_token:string, password_reset_token:string, password_reset_sent_at:datetime
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
   
