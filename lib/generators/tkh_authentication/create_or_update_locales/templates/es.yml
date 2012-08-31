@@ -1,14 +1,13 @@
 es:
-  language_name: "Español"
   
   activerecord: 
-      attributes:
-        user:
-          first_name: "nombre de pila"
-          last_name: "apellido"
-          email: "email"
-          password: 'contraseña'
-          password_confirmation: 'confirmar contraseña'
+    attributes:
+      user:
+        first_name: "nombre de pila"
+        last_name: "apellido"
+        email: "email"
+        password: 'contraseña'
+        password_confirmation: 'confirmar contraseña'
           
   authentication:
     create_account: 'crea tu cuenta'
