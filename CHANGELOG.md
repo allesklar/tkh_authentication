@@ -2,6 +2,13 @@
 
 
 
+## 0.0.8
+
+* User has_many pages
+* Cleaned up locale files
+* Added German locale but translated strings are not in yet
+
+
 ## 0.0.7
 
 * Safe redirect to root if host app did not set up the root route

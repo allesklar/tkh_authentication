@@ -2,7 +2,7 @@
 
 This is a Rails engine which provides basic authentication. It is based on Railscasts 250 and 274.
 
-Primarily developed for Ten Thousand Hours but we are happy to share if anybody finds it useful.  It's primarily developed to work in sync with the tkh_cms gem suite but overtime more and more effort will be made to make it work in isolation.
+Primarily developed for Ten Thousand Hours but we are happy to share if anybody finds it useful.  It's primarily developed to work in sync with the tkh_cms gem suite but over time more and more effort will be made to make it work in isolation.
 
 It's still in its infancy. Many improvements to come.
 
@@ -48,7 +48,7 @@ To display the login information module anywhere in your views
 
 		render 'shared/login_info'
 		
-Ifo restrict access to your controllers to logged in users:
+To restrict access to your controllers to logged in users:
 
 		before_filter :authenticate, except: 'show'
 		
