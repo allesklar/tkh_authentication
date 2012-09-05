@@ -16,6 +16,7 @@ es:
     login_now: "conectar"
     logout: "salir"
     logout_confirmation: 'Se ha cerrado la sesión'
+    name: 'nombre'
     not_registered: 'no tienes una cuenta todavía'
     password_reset_confirmation: 'Tu contraseña se ha restablecido correctamente.'
     password_reset_email_subject: 'Restablecimiento de contraseña.'

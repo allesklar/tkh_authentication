@@ -1,4 +1,13 @@
 en:
+  
+  activerecord: 
+    attributes:
+      user:
+        first_name: "first name"
+        last_name: "last name"
+        email: "email"
+        password: 'password'
+        password_confirmation: 'password confirmation'
 
   authentication:
     create_account: 'create your account'
@@ -7,6 +16,7 @@ en:
     login_now: "log in"
     logout: "log out"
     logout_confirmation: "You have been logged out!"
+    name: 'name'
     not_registered: "you don't have an account yet?"
     password_reset_confirmation: "Your password has been successfully reset!"
     password_reset_email_subject: "Password reset"

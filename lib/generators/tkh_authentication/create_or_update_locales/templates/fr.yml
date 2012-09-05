@@ -16,6 +16,7 @@ fr:
     login_now: "Identifiez-vous"
     logout: "déconnexion"
     logout_confirmation: "Merci pour votre visite."
+    name: 'nom'
     not_registered: "vous n'avez pas encore de compte ?"
     password_reset_confirmation: "Votre mot de passe a été réinitialisé avec succès !"
     password_reset_email_subject: "Réinitialisation du mot de passe"
