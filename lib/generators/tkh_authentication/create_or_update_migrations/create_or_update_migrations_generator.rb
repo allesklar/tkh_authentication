@@ -2,7 +2,7 @@ require 'rails/generators/migration'
  
 module TkhAuthentication
   module Generators
-    class CreateMigrationGenerator < ::Rails::Generators::Base
+    class CreateOrUpdateMigrationsGenerator < ::Rails::Generators::Base
       include Rails::Generators::Migration
       source_root File.expand_path('../templates', __FILE__)
       desc "add the migrations and locale files"
