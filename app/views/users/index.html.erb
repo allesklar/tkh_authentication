@@ -3,8 +3,8 @@
 <table class='table table-striped'>
 	<thead>
   <tr>	
-			<th>Name</th>
-	    <th>Email</th>
+			<th><%= t 'authentication.name' %></th>
+	    <th><%= t 'activerecord.attributes.user.email' %></th>
 			<th>Admin?</th>
 	  </tr>
 	</thead>
@@ -14,7 +14,13 @@
 		  <tr>
 		    <td><%= user.name %></td>
 				<td><%= user.email %></td>
-				<td><%= user.admin? ? '✓' : 'X' %></td>
+				<td>
+					<% if user.admin? %>
+						<span class="label label-success">✓</span> <%# = link_to 'unpublish', unpublish_page_path(page), class: 'btn btn-mini', method: :post %>
+					<% else %>
+					  <span class="label label-important">X</span> <%#j= link_to 'publish', publish_page_path(page), class: 'btn btn-mini btn-primary', method: :post %>
+					<% end -%>
+				</td>
 		  </tr>
 		<% end %>
 	</tbody>
