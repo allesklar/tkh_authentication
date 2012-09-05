@@ -2,6 +2,14 @@
 
 
 
+## 0.0.9
+
+* Administrator can enable other users do become admins or remove their privileges
+* localized a few users index view strings
+* Refactored migrations generator
+* Added an update rake task
+
+
 ## 0.0.8
 
 * User has_many pages
