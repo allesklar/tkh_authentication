@@ -10,7 +10,11 @@ es:
         password_confirmation: 'confirmar contraseña'
           
   authentication:
+    admin_disabled_confirmation: "Este usuario no es un administrador"
+    admin_enabled_confirmation: 'Este usuario es ahora un administrador'
     create_account: 'crea tu cuenta'
+    disable_admin: 'eliminar el poder'
+    enable_admin: 'autorizar'
     forgot_password: '¿olvidaste tu contraseña?'
     login_confirmation: 'Conectado con éxito'
     login_now: "conectar"

@@ -15,10 +15,10 @@
 		    <td><%= user.name %></td>
 				<td><%= user.email %></td>
 				<td>
-					<% if user.admin? %>
-						<span class="label label-success">✓</span> <%# = link_to 'unpublish', unpublish_page_path(page), class: 'btn btn-mini', method: :post %>
+					<% unless user.admin? %>
+					  <span class="label label-important">X</span> <%= link_to t('authentication.enable_admin'), make_admin_user_path(user), class: 'btn btn-mini', method: :post %>
 					<% else %>
-					  <span class="label label-important">X</span> <%#j= link_to 'publish', publish_page_path(page), class: 'btn btn-mini btn-primary', method: :post %>
+						<span class="label label-success">✓</span> <%= link_to t('authentication.disable_admin'), remove_admin_user_path(user), class: 'btn btn-mini', method: :post %>
 					<% end -%>
 				</td>
 		  </tr>

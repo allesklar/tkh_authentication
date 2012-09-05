@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
 
-    resources :users
+    resources :users do
+      member do
+        post :make_admin
+        post :remove_admin
+      end
+    end
     resources :sessions
     resources :password_resets
   end

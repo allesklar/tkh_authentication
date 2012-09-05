@@ -10,7 +10,11 @@ fr:
         password_confirmation: 'confirmation de mot de passe'
           
   authentication:
+    admin_disabled_confirmation: "cet utilisateur n'est plus un administrateur"
+    admin_enabled_confirmation: 'cet utilisateur est maintenant un administrateur'
     create_your_account: 'créez votre compte'
+    disable_admin: 'enlever le pouvoir'
+    enable_admin: 'donner le pouvoir'
     forgot_password: "avez vous oublié votre mot de passe ?"
     login_confirmation: "Merci de vous être identifié !"
     login_now: "Identifiez-vous"

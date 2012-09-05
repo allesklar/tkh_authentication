@@ -10,7 +10,11 @@ de:
         password_confirmation: 'password confirmation'
 
   authentication:
+    admin_disabled_confirmation: 'you have stripped this user of the administrator privileges'
+    admin_enabled_confirmation: 'you have empowered this user to be an administrator'
     create_account: 'create your account'
+    disable_admin: 'disable'
+    enable_admin: 'enable'
     forgot_password: "forgot your password?"
     login_confirmation: "You have been logged in!"
     login_now: "log in"
