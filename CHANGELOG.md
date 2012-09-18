@@ -2,6 +2,11 @@
 
 
 
+## 0.0.10
+
+* Added the German translation strings.
+
+
 ## 0.0.9
 
 * Administrator can enable other users do become admins or remove their privileges
