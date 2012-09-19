@@ -2,6 +2,11 @@
 
 
 
+## 0.0.11
+
+* Modified some German translation strings.
+
+
 ## 0.0.10
 
 * Added the German translation strings.
