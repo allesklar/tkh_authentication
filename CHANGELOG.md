@@ -2,6 +2,12 @@
 
 
 
+## 0.0.12
+
+* Added an administrator? method
+* Refactored the authenicate_as_admin method
+
+
 ## 0.0.11
 
 * Modified some German translation strings.
