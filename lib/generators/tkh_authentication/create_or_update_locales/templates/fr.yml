@@ -12,7 +12,7 @@ fr:
   authentication:
     admin_disabled_confirmation: "cet utilisateur n'est plus un administrateur"
     admin_enabled_confirmation: 'cet utilisateur est maintenant un administrateur'
-    create_your_account: 'créez un compte'
+    create_account: 'créez un compte'
     disable_admin: 'enlever le pouvoir'
     enable_admin: 'donner le pouvoir'
     forgot_password: "avez vous oublié votre mot de passe ?"
