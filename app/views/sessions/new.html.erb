@@ -1,22 +1,38 @@
 <h1>Log In</h1>
 
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %><br />
-		<%= link_to t('authentication.not_registered'), signup_path %>
-  </div>
+<%= form_tag sessions_path, class: 'simple_form form-horizontal' do %>
 
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %><br />
-		<%= link_to t('authentication.forgot_password'), new_password_reset_path %>
-  </div>
-	<p></p>
+	<div class="form-inputs">
+		
+	  <div class="control-group email required">
+	    <%= label_tag :email, nil, class: "email required control-label" %>
+			<div class="controls">
+		    <%= text_field_tag :email, params[:email], :html => { class: 'string email required' } %>
+				<p class="help-block"><%= link_to t('authentication.not_registered'), signup_path %></p>
+			</div>
+	  </div>
 	
-	<div class="field">
-	  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-	  <%= label_tag :remember_me %>
+		<div class="control-group password required">
+	    <%= label_tag :password, nil, class: "password required control-label" %>
+			<div class="controls">
+		    <%= password_field_tag :password %>
+				<p class="help-block"><%= link_to t('authentication.forgot_password'), new_password_reset_path %></p>
+			</div>
+	  </div>
+
+		<div class="control-group boolean optional">
+			<div class="controls">
+				<label class="checkbox"><input class="boolean optional" id="remember_me" name="remember_me" type="checkbox" value="1" />Remember me</label>
+			</div>
+		</div>
+	
 	</div>
-  <div class="actions"><%= submit_tag t('authentication.login_now') %></div>
+	
+	<div class="form-actions">
+    <%= submit_tag t('authentication.login_now'), class: 'btn btn-primary' %>
+  </div>
+	
 <% end %>
+
+<%# partial in tkh_menus gem or has to be added in host app %>
+<%= render './shared/menus' %>
