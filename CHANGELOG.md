@@ -2,6 +2,14 @@
 
 
 
+## 0.1
+
+* Styled login form the simple_form way
+* Changed some text and translations in login form
+* Worked on text and translation in signup form 
+* The shared/menus partial is called from all authentication pages
+
+
 ## 0.0.12
 
 * Added an administrator? method
