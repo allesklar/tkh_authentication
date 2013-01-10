@@ -24,6 +24,7 @@ en:
     not_registered: "you don't have an account yet?"
     password_reset_confirmation: "Your password has been successfully reset!"
     password_reset_email_subject: "Password reset"
+    remember_me: "stay logged in"
     reset_instructions: "To reset your password, click or visit this link: %{reset_url}  \n\nIf you did not request your password to be reset, please ignore this email. Your password will stay as it is."
     reset_password_email_sent_confirmation: "We have emailed you a link to reset your password."
     reset_your_password: "Reset Password"

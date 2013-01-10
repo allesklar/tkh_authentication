@@ -24,6 +24,7 @@ es:
     not_registered: 'no tienes una cuenta todavía'
     password_reset_confirmation: 'Tu contraseña se ha restablecido correctamente.'
     password_reset_email_subject: 'Restablecimiento de contraseña.'
+    remember_me: "recordar en este equipo"
     reset_instructions: "Para restablecer tu contraseña click o visita este enlace: %{reset_url}  \n\n si no has pedido que se reestablezca tu contraseña, por favor ignora este e-mail. Tu contraseña seguirá igual."
     reset_password_email_sent_confirmation: 'Te hemos enviado un enlace para reestablecer tu contraseña.'
     reset_your_password: 'Restablece tu contraseña.'

@@ -24,6 +24,7 @@ fr:
     not_registered: "vous n'avez pas encore de compte ?"
     password_reset_confirmation: "Votre mot de passe a été réinitialisé avec succès !"
     password_reset_email_subject: "Réinitialisation du mot de passe"
+    remember_me: "restez identifié"
     reset_password_email_sent_confirmation: "Nous vous avons envoyé un lien pour réinitialiser votre mot de passe."
     reset_your_password: "Réinitialisez votre mot de passe."
     signup_confirmation: "Votre compte a été créé et vous êtes identifié !"
