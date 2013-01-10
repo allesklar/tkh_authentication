@@ -1,3 +1,5 @@
+<h1><%= t('authentication.create_account') %></h1>
+
 <%= simple_form_for @user, :html => { class: 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
 
@@ -10,6 +12,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, label: t('authentication.create_account'), :class => 'btn btn-primary' %>
+    <%= f.button :submit, t('authentication.create_account'), :class => 'btn btn-primary' %>
   </div>
 <% end %>
