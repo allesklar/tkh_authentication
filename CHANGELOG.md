@@ -2,6 +2,11 @@
 
 
 
+## 0.1.1
+
+* Translated the logout link in sidebar and removed button class
+
+
 ## 0.1
 
 * Styled login form the simple_form way
