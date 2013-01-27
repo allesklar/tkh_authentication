@@ -2,6 +2,11 @@
 
 
 
+## 0.1.2
+
+* Minor translation fix
+
+
 ## 0.1.1
 
 * Translated the logout link in sidebar and removed button class
