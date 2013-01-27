@@ -14,8 +14,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    set_target_page
     if @user.save
-      cookies[:auth_token] = @user.auth_token
+      cookies[:auth_token] = @user.auth_token # logging in the user
       redirect_to session[:target_page] || safe_root_url, notice: t('authentication.signup_confirmation')
       session[:target_page] = nil
     else
@@ -35,6 +36,12 @@ class UsersController < ApplicationController
     user.admin = false
     user.save
     redirect_to users_path, notice: t('authentication.admin_disabled_confirmation')
+  end
+  
+  private
+  
+  def set_target_page
+    session[:target_page] = request.referer unless session[:target_page] # && !request.referer.nil?
   end
   
 end
