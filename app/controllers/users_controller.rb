@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :authenticate, only: 'index'
-  before_filter :authenticate_with_admin, only: 'index'
+  before_filter :authenticate_with_admin, except: ['new', 'create']
   
   def index
     @users = User.by_recent
@@ -21,6 +21,20 @@ class UsersController < ApplicationController
     else
       render "new"
     end
+  end
+  
+  def make_admin
+    user = User.find(params[:id])
+    user.admin = true
+    user.save
+    redirect_to users_path, notice: t('authentication.admin_enabled_confirmation')
+  end
+  
+  def remove_admin
+    user = User.find(params[:id])
+    user.admin = false
+    user.save
+    redirect_to users_path, notice: t('authentication.admin_disabled_confirmation')
   end
   
 end

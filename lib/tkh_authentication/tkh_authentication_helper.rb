@@ -6,9 +6,14 @@ module TkhAuthenticationHelper
   end
 
   module InstanceMethods
-    # duplicated it from action controller extension. there must be a better way
+    # duplicated from action controller extension. there must be a better way
     def current_user
       @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+    end
+        
+    # duplicated from action controller extension. there must be a better way
+    def administrator?
+      @administrator ||= current_user && current_user.admin?
     end
   end
 end

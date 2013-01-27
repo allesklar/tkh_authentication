@@ -1,0 +1,9 @@
+<% if current_user %>
+	<h3>You are logged in as</h3>
+	<p><%= current_user.name %>, <%= current_user.email %> | <%= link_to t('authentication.logout'), logout_path %>
+	</p>
+<% else %>
+	<h3>You are not logged in</h3>
+	<p><%= link_to t('authentication.login_now'), login_path %> or <%= link_to t('authentication.create_account'), signup_path %>
+  </p>
+<% end %>

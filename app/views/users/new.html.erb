@@ -1,4 +1,6 @@
-<%= simple_form_for @user do |f| %>
+<h1><%= t('authentication.create_account') %></h1>
+
+<%= simple_form_for @user, :html => { class: 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -6,10 +8,13 @@
 		<%= f.input :first_name %>
 		<%= f.input :last_name %>
     <%= f.input :password %>
-		<%= f.input :password_confirmation %>
+		<%= f.input :password_confirmation, required: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, label: t('authentication.create_account'), :class => 'btn btn-primary' %>
+    <%= f.button :submit, t('authentication.create_account'), :class => 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%# partial in tkh_menus gem or has to be added in host app %>
+<%= render './shared/menus' %>

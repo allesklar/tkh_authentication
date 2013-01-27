@@ -3,6 +3,8 @@
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>
   </div>
-  <div class="actions"><%= submit_tag t('authentication.reset_your_password') %></div>
+  <div class="actions"><%= submit_tag t('authentication.reset_your_password'), class: 'btn btn-primary' %></div>
 <% end %>
 
+<%# partial in tkh_menus gem or has to be added in host app %>
+<%= render './shared/menus' %>

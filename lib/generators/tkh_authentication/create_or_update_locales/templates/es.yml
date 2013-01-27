@@ -10,15 +10,21 @@ es:
         password_confirmation: 'confirmar contraseña'
           
   authentication:
+    admin_disabled_confirmation: "Este usuario no es un administrador"
+    admin_enabled_confirmation: 'Este usuario es ahora un administrador'
     create_account: 'crea tu cuenta'
+    disable_admin: 'eliminar el poder'
+    enable_admin: 'autorizar'
     forgot_password: '¿olvidaste tu contraseña?'
     login_confirmation: 'Conectado con éxito'
     login_now: "conectar"
     logout: "salir"
     logout_confirmation: 'Se ha cerrado la sesión'
+    name: 'nombre'
     not_registered: 'no tienes una cuenta todavía'
     password_reset_confirmation: 'Tu contraseña se ha restablecido correctamente.'
     password_reset_email_subject: 'Restablecimiento de contraseña.'
+    remember_me: "recordar en este equipo"
     reset_instructions: "Para restablecer tu contraseña click o visita este enlace: %{reset_url}  \n\n si no has pedido que se reestablezca tu contraseña, por favor ignora este e-mail. Tu contraseña seguirá igual."
     reset_password_email_sent_confirmation: 'Te hemos enviado un enlace para reestablecer tu contraseña.'
     reset_your_password: 'Restablece tu contraseña.'
