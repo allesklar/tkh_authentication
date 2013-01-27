@@ -1,3 +1,5 @@
+<h1>Create a new Password</h1>
+
 <%= simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
 <%= f.error_notification %>
 
@@ -7,4 +9,3 @@
   </div>
   <div class="actions"><%= f.submit t('authentication.update_password') %></div>
 <% end %>
-
