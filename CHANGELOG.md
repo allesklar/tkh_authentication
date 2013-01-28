@@ -2,6 +2,14 @@
 
 
 
+## 0.1.3
+
+* Added login module partial to embed in pages and set it up with bootstrap tabs
+* Refactored login and signup forms
+* A logged-in user cannot got to login or signup page. They are redirected to the root page.
+* The two reset password views have now headings and one explanation. More friendly and it makes it clear that it can be used to change one's password even without having forgotten it.
+
+
 ## 0.1.2
 
 * Minor translation fix
