@@ -1,6 +1,10 @@
 es:
   
-  activerecord: 
+  activerecord:
+    models:
+      user: 'user'
+      users: 'users'
+      
     attributes:
       user:
         first_name: "nombre de pila"
@@ -22,6 +26,10 @@ es:
     logout_confirmation: 'Se ha cerrado la sesión'
     name: 'nombre'
     not_registered: 'no tienes una cuenta todavía'
+    password:
+      request:
+        a_new_one: 'Request a new Password'
+        explanation: "Whether you forgot your password or you just want to change it, please give us your email address. We will send you an email with instructions on how to complete the two-click, 30 second process."
     password_reset_confirmation: 'Tu contraseña se ha restablecido correctamente.'
     password_reset_email_subject: 'Restablecimiento de contraseña.'
     remember_me: "recordar en este equipo"
@@ -29,6 +37,9 @@ es:
     reset_password_email_sent_confirmation: 'Te hemos enviado un enlace para reestablecer tu contraseña.'
     reset_your_password: 'Restablece tu contraseña.'
     signup_confirmation:  'Hemos creado tu cuenta y ya estas conectado.'
+    status:
+      logged_in: 'You are logged in as'
+      not_logged_in: 'You are not logged in'
     update_password: 'Actualiza tu contraseña.'
     warning:
       email_or_password_invalid: 'Correo electrónico o contraseña no válidos'

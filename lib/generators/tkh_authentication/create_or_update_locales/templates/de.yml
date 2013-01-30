@@ -1,8 +1,13 @@
 de:
   
   activerecord:
+    models:
+      user: 'user'
+      users: 'users'
+      
     attributes:
       user:
+        admin: 'admin' # admin is short for administrator. put full word if necessary
         first_name: "Vorname"
         last_name: "Nachname"
         email: "Email"
@@ -12,7 +17,7 @@ de:
   authentication:
     admin_disabled_confirmation: 'du hast diesem Nutzer die Administrator-Rechte entzogen'
     admin_enabled_confirmation: 'Du hast diesem Nutzer Administrator-Rechte gegeben'
-    create_account: 'erstelle ein Nutzerkonto'
+    create_account: 'Nutzerkonto erstellen'
     disable_admin: 'löschen'
     enable_admin: 'erstellen'
     forgot_password: "Kennwort vergessen?"
@@ -22,6 +27,10 @@ de:
     logout_confirmation: "Du hast dich abgemeldet!"
     name: 'Name'
     not_registered: "Hast Du schon ein Nutzerkonto?"
+    password:
+      request:
+        a_new_one: 'Request a new Password'
+        explanation: "Whether you forgot your password or you just want to change it, please give us your email address. We will send you an email with instructions on how to complete the two-click, 30 second process."
     password_reset_confirmation: "Dein Kennwort wurde erfolgreich zurückgesetzt!"
     password_reset_email_subject: "Kennwort zurücksetzen"
     remember_me: "mich erinnern"
@@ -29,6 +38,9 @@ de:
     reset_password_email_sent_confirmation: "Wir haben Dir einen Link zum Zurücksetzen Deines Kennworts geschickt."
     reset_your_password: "Kennwort zurücksetzen"
     signup_confirmation: "Dein Nutzerkonto wurde erstellt und Du bist eingeloggt!"
+    status:
+      logged_in: 'You are logged in as'
+      not_logged_in: 'Du bist nicht angemeldet'
     update_password: "Aktualisiere Dein Kennwort"
     warning:
       email_or_password_invalid: "Email oder Kennwort ungültig"

@@ -1,11 +1,11 @@
-<h1>Listing Users</h1>
+<h1><%= t('activerecord.models.users') %></h1>
 
 <table class='table table-striped'>
 	<thead>
   <tr>	
 			<th><%= t 'authentication.name' %></th>
 	    <th><%= t 'activerecord.attributes.user.email' %></th>
-			<th>Admin?</th>
+			<th><%= t('question_mark_inverted') %><%= t('activerecord.attributes.user.admin') %><%= t('question_mark') %></th>
 	  </tr>
 	</thead>
 	

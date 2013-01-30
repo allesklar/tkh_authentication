@@ -7,7 +7,6 @@ en:
       
     attributes:
       user:
-        admin: 'admin' # admin is short for administrator. put full word if necessary
         first_name: "first name"
         last_name: "last name"
         email: "email"
@@ -49,45 +48,3 @@ en:
       password_reset_expired: "Password reset has expired. There was a 24 hours grace period"
       restricted_access: "This section is reserved to the site's administrators. Contact the site owner if you would like access to be granted to you."
     
-    
-  # leaving these until I have used up all the ones I need.
-  access_control:  
-    already_signed_up_message: "You already have a La Source account. Please login to your existing account." 
-    email_hint: This address will be used as your login id
-    email_must_be_valid: Please enter a valid email address before submitting
-    
-    
-    have_an_account: 'have an account?'
-    hello: hello
-    hello_name: "Hi %{name},"
-    invalid_email_or_password: "Invalid email or password. Please double check your data, modify it, and resubmit the form"
-    login: "log in"
-    
-    
-    login_now_in_text: log in here
-    
-    
-    my_profile: 'my profile'
-    new_password: New Password
-    new_password_confirmation: New Password confirmation
-
-    not_authorized_alert: "You are not authorized to access this page. You have been redirected to the home page."
-    
-    or: "or"
-    password: password
-    password_confirmation: password confirmation
-
-
-    password_must_match_confirmation: 'the password and the password confirmation must match'
-    password_on_its_way: "A new password has been generated. It will be emailed within 24 hours to %{email_address}."
-    password_reset: Password reset
-    phone_entry_request: "If enrolling in a course, we would appreciate at least one phone number."
-    please_log_in: Please log in to see your personal information.
-    remember_me: "stay logged in"
-    
-    
-    signup: "create an account"
-    
-    signup_now: "create an account"
-
-    valid_email_needed: 'Please enter a valid email address'

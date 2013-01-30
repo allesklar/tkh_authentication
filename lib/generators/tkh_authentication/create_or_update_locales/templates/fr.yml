@@ -1,8 +1,13 @@
 fr:
   
-  activerecord: 
+  activerecord:
+    models:
+      user: 'utilisateur'
+      users: 'les utilisateurs'
+      
     attributes:
       user:
+        admin: 'administrateur' # admin is short for administrator. put full word if necessary
         first_name: "prénom"
         last_name: "nom de famille"
         email: "courriel"
@@ -17,17 +22,24 @@ fr:
     enable_admin: 'donner le pouvoir'
     forgot_password: "avez vous oublié votre mot de passe ?"
     login_confirmation: "Merci de vous être identifié !"
-    login_now: "Identifiez-vous"
+    login_now: "identifiez-vous"
     logout: "déconnexion"
     logout_confirmation: "Merci pour votre visite."
     name: 'nom'
     not_registered: "vous n'avez pas encore de compte ?"
+    password:
+      request:
+        a_new_one: 'Demander un nouveau mot de passe'
+        explanation: "Que vous ayez oublié votre mot de passe, ou que vous vouliez juste en changer, veuillez entrer votre adresse courriel. Nous allons vous envoyer un courriel avec les instructions. Ça prendra deux clicks de souris et environ 30 segondes."
     password_reset_confirmation: "Votre mot de passe a été réinitialisé avec succès !"
     password_reset_email_subject: "Réinitialisation du mot de passe"
     remember_me: "gardez la session ouverte" # got this from amazon.fr
     reset_password_email_sent_confirmation: "Nous vous avons envoyé un lien pour réinitialiser votre mot de passe."
-    reset_your_password: "Réinitialisez votre mot de passe."
+    reset_your_password: "Réinitialiser votre mot de passe"
     signup_confirmation: "Votre compte a été créé et vous êtes identifié !"
+    status:
+      logged_in: 'Votre identification :'
+      not_logged_in: "Vous n'êtes pas identifié"
     update_password: "Actualiser le mot de passe"
     warning:
       email_or_password_invalid: "La combinaison de l'addresse email et du mot de passe n'est pas correct"
