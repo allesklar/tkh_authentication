@@ -2,6 +2,12 @@
 
 
 
+## 0.1.4
+
+* Set up all missing translations
+* Improved and debugged user mailer
+
+
 ## 0.1.3
 
 * Added login module partial to embed in pages and set it up with bootstrap tabs
