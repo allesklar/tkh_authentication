@@ -2,6 +2,12 @@
 
 
 
+## 0.1.5
+
+* Modified the login info in sidebar partial
+* Added a login info for navbar partial
+
+
 ## 0.1.4
 
 * Set up all missing translations
