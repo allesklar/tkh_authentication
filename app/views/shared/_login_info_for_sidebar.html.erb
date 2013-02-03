@@ -1,9 +1,12 @@
 <% if current_user %>
-	<h3><%= t('authentication.status.logged_in') %></h3>
-	<p><%= current_user.name %>, <%= current_user.email %> | <%= link_to t('authentication.logout'), logout_path %>
-	</p>
+	<div class="btn-group">
+		<br />
+		<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.email %>&nbsp;<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<%= content_tag :li, link_to(t('logout'), logout_path) %>
+		</ul>
+	</div>
 <% else %>
-	<h3><%= t('authentication.status.not_logged_in') %></h3>
-	<p><%= link_to t('authentication.login_now').capitalize, login_path %> <%= t('or') %> <%= link_to t('authentication.create_account'), signup_path %>
-  </p>
+	<p><br /><%= link_to t('authentication.login_now'), login_path, class: 'btn' %></p>
 <% end %>
+
