@@ -2,6 +2,12 @@
 
 
 
+## 0.1.6
+
+* Added a formal_name virtual attribute to the user model
+* Added the alphabetically scope to the user model
+
+
 ## 0.1.5
 
 * Modified the login info in sidebar partial
