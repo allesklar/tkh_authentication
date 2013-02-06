@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   
+  scope :alphabetically, order('last_name, first_name')
+  
   before_create { generate_token(:auth_token) }
   
   # use the stringex gem to create slug | usually on the title or name attribute
@@ -25,7 +27,11 @@ class User < ActiveRecord::Base
   scope :by_recent, :order => 'updated_at desc'
   
   def name
-    result = "#{first_name} #{last_name}".strip
+    "#{first_name} #{last_name}".strip
+  end
+  
+  def formal_name
+    "#{last_name}, #{first_name}".strip
   end
 
   def send_password_reset
