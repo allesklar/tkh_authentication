@@ -2,6 +2,11 @@
 
 
 
+## 0.1.7
+
+* Added administrators scope to user model
+
+
 ## 0.1.6
 
 * Added a formal_name virtual attribute to the user model
