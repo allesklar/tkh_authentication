@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}".strip
   end
 
+  def spiritual_name
+    @spiritual_name = other_name || first_name
+  end
+
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
