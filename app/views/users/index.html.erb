@@ -1,18 +1,20 @@
 <h1><%= t('activerecord.models.users') %></h1>
 
+<%= render 'details/tab_admin_menu' %>
+
 <table class='table table-striped'>
 	<thead>
-  <tr>	
+  <tr>
 			<th><%= t 'authentication.name' %></th>
 	    <th><%= t 'activerecord.attributes.user.email' %></th>
 			<th><%= t('question_mark_inverted') %><%= t('activerecord.attributes.user.admin') %><%= t('question_mark') %></th>
 	  </tr>
 	</thead>
-	
+
 	<tbody>
 		<% @users.each do |user| %>
 		  <tr>
-		    <td><%= user.name %></td>
+		    <td><%= link_to user.name, detail_path(user) %></td>
 				<td><%= user.email %></td>
 				<td>
 					<% unless user.admin? %>
