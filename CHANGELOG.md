@@ -2,6 +2,11 @@
 
 
 
+## 0.9
+
+* Upgraded gem to Rails 4
+
+
 ## 0.1.7
 
 * Added administrators scope to user model
@@ -47,7 +52,7 @@
 
 * Styled login form the simple_form way
 * Changed some text and translations in login form
-* Worked on text and translation in signup form 
+* Worked on text and translation in signup form
 * The shared/menus partial is called from all authentication pages
 
 

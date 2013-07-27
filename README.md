@@ -8,9 +8,13 @@ It's still in its infancy. Many improvements to come.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+For Rails 4.0.0 and above add this line to your application's Gemfile:
 
-    gem 'tkh_authentication', '~> 0.0'
+    gem 'tkh_toolbox', '~> 0.9'
+
+For prior versions of Rails, use this:
+
+    gem 'tkh_toolbox', '< 0.9'
 
 And then execute:
 
@@ -19,17 +23,17 @@ And then execute:
 Import migration and locale files
 
 		$ rake tkh_authentication:install
-		
+
 Run the migration
 
 		$ rake db:migrate
-		
+
 You need a root route in your app but most apps have that already.
 
 And then of course restart your server!
 
 		$ rails s
-		
+
 Upon upgrading to a new version of the gem you might have to update the translation files
 
 		$ rails g tkh_authentication:create_or_update_locales -f
@@ -47,11 +51,11 @@ A starting point could be:
 To display the login information module anywhere in your views
 
 		render 'shared/login_info'
-		
+
 To restrict access to your controllers to logged in users:
 
 		before_filter :authenticate, except: 'show'
-		
+
 Additionally, if you want to restrict access to users whose admin boolean attribute is true, add this line just below the authenticate one.
 
 		before_filter :authenticate_with_admin, except: [ 'show', 'index' ]
