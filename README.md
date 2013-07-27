@@ -10,11 +10,11 @@ It's still in its infancy. Many improvements to come.
 
 For Rails 4.0.0 and above add this line to your application's Gemfile:
 
-    gem 'tkh_toolbox', '~> 0.9'
+    gem 'tkh_authentication', '~> 0.9'
 
 For prior versions of Rails, use this:
 
-    gem 'tkh_toolbox', '< 0.9'
+    gem 'tkh_authentication', '< 0.9'
 
 And then execute:
 
