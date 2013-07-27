@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency 'bcrypt-ruby', '~> 3.1.1'
-  s.add_dependency 'simple_form', '~> 2.1'
+  s.add_dependency 'simple_form', '3.0.0.rc'
   s.add_dependency 'stringex'
 
   s.add_development_dependency "sqlite3"
