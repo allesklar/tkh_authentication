@@ -1,6 +1,11 @@
 # TKH Authentication
 
 
+## 0.1.8
+
+* Added other name attribute to user model
+* Integrated views and functionality with the new tkh-mailing-list gem. tkh-authentication handles the user model and creation of records by user and tkh-mailing-list will handle all additions/modifications/deletions by the admin.
+
 
 ## 0.1.7
 
@@ -47,7 +52,7 @@
 
 * Styled login form the simple_form way
 * Changed some text and translations in login form
-* Worked on text and translation in signup form 
+* Worked on text and translation in signup form
 * The shared/menus partial is called from all authentication pages
 
 
