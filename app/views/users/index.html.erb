@@ -8,6 +8,7 @@
 			<th><%= t 'authentication.name' %></th>
 	    <th><%= t 'activerecord.attributes.user.email' %></th>
 			<th><%= t('question_mark_inverted') %><%= t('activerecord.attributes.user.admin') %><%= t('question_mark') %></th>
+			<th><%= t('actions') %></th>
 	  </tr>
 	</thead>
 
@@ -23,6 +24,7 @@
 						<span class="label label-success">✓</span> <%= link_to t('authentication.disable_admin'), remove_admin_user_path(user), class: 'btn btn-mini', method: :post %>
 					<% end -%>
 				</td>
+				<td><%= link_to t('edit'), edit_detail_path(user), class: 'btn btn-mini' %></td>
 		  </tr>
 		<% end %>
 	</tbody>
