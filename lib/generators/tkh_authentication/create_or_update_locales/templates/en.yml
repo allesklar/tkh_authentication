@@ -20,6 +20,8 @@ en:
     create_account: 'create an account'
     disable_admin: 'disable'
     enable_admin: 'enable'
+    email_validation_subject: "Email validation"
+    email_validation_instructions: "To confirm your email address, please visit this link: %{reset_url} and create your password \n\nIf you did not wish to create a new account with us, please ignore this email."
     forgot_password: "forgot your password?"
     login_confirmation: "You have been logged in!"
     login_now: "log in"

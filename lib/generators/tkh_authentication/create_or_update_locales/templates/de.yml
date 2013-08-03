@@ -20,6 +20,8 @@ de:
     create_account: 'Nutzerkonto erstellen'
     disable_admin: 'löschen'
     enable_admin: 'erstellen'
+    email_validation_subject: "Email validation"
+    email_validation_instructions: "To confirm your email address, please visit this link: %{reset_url} and create your password \n\nIf you did not wish to create a new account with us, please ignore this email."
     forgot_password: "Kennwort vergessen?"
     login_confirmation: "Du bist eingelogged!"
     login_now: "einloggen"
