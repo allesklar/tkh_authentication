@@ -1,10 +1,10 @@
 es:
-  
+
   activerecord:
     models:
       user: 'user'
       users: 'users'
-      
+
     attributes:
       user:
         first_name: "nombre de pila"
@@ -12,7 +12,7 @@ es:
         email: "email"
         password: 'contraseña'
         password_confirmation: 'confirmar contraseña'
-          
+
   authentication:
     admin_disabled_confirmation: "Este usuario no es un administrador"
     admin_enabled_confirmation: 'Este usuario es ahora un administrador'
@@ -45,5 +45,5 @@ es:
       email_or_password_invalid: 'Correo electrónico o contraseña no válidos'
       login_needed: 'Tienes que estar conectado para acceder a esta pagina. Te redirijimos al formulario para conectar.'
       no_such_email:  'No existe ninguna cuenta con el correo electronico que nos has proporcionado.'
-      password_reset_expired: 'El reestablecimiento de la contraseña ha caducado. Tienes 24 horas para intentarlo otra vez.'
+      password_reset_expired: 'El reestablecimiento de la contraseña ha caducado. Tienes 2 horas para intentarlo otra vez.'
       restricted_access: "Esta parte del sitio está reservado para los administradores. Por favor, pedir permiso al propietario del sitio."

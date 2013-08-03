@@ -1,10 +1,10 @@
 fr:
-  
+
   activerecord:
     models:
       user: 'utilisateur'
       users: 'les utilisateurs'
-      
+
     attributes:
       user:
         admin: 'administrateur' # admin is short for administrator. put full word if necessary
@@ -13,7 +13,7 @@ fr:
         email: "courriel"
         password: 'mot de passe'
         password_confirmation: 'confirmation de mot de passe'
-          
+
   authentication:
     admin_disabled_confirmation: "cet utilisateur n'est plus un administrateur"
     admin_enabled_confirmation: 'cet utilisateur est maintenant un administrateur'
@@ -47,40 +47,40 @@ fr:
       no_such_email: "Désolé nous n'avons pas d'utilisateur avec cette adresse email"
       password_reset_expired: "Votre mot de passe n'a pu être réinitialisé car votre demande date de plus de 24 heures."
       restricted_access: "Cette partie du site est réservée aux administrateurs. Veuillez demander l'autorisation au propriétaire du site."
-    
-    
-    
+
+
+
   # leaving these until I have used up all the ones I need.
-  access_control:  
+  access_control:
     already_signed_up_message: "Vous avez déjà un compte La Source. Veuillez vous identifier avec ce compte existant."
-    
+
     email_hint: Cette adresse sera votre identifiant
     email_must_be_valid: Vous devez entrer une adresse courriel avant d'envoyer votre demande
 
-    
+
     have_an_account: 'vous avez un compte ?'
     hello: bonjour
     hello_name: "Bonjour %{name} ,"
     invalid_email_or_password: "Erreur d'email ou de mot de passe. Veuillez vérifier vos données, les corriger et essayer à nouveau."
     login: "s'identifier"
-    
-    
+
+
     login_now_in_text: vous identifier
 
-    
+
     my_profile: 'mon profil'
     new_password: Nouveau mot de passe
     new_password_confirmation: Confirmation du nouveau mot de passe
-    
+
     not_authorized_alert: "Vous n'avez pas l'autorization d'acceder cette page. Vous avez été redirigé sur la page d'accueil."
-    
+
     or: ou
     password: mot de passe
     password_confirmation: confirmation du mot de passe
 
- 
+
     password_must_match_confirmation: 'Le mot de passe et sa confirmation doivent être identiques'
-    password_on_its_way: "Nous avons crée votre nouveau mot de passe et vous devriez le recevoir dans les 24 heures qui suivent à cette adresse : %{email_address}."
+    password_on_its_way: "Nous avons crée votre nouveau mot de passe et vous devriez le recevoir dans les 2 heures qui suivent à cette adresse : %{email_address}."
     password_reset: Réinitialisation du mot de passe
     please_log_in: Veuillez vous identifier pour voir votre information personnalisée.
     phone_entry_request: "Si vous joignez un cours, nous vous serions reconnaissant de nous fournir au moins un numéro de téléphone."
@@ -88,7 +88,7 @@ fr:
     reset_instructions: "Pour réinitialiser votre mot de passe, cliquez sur le lien en-dessous :"
     reset_instructions2: "Si vous n’avez pas demandé la réinitialisation de votre mot de passe, veuillez ignorer ce courriel. Votre mot de passe restera le même."
     signup: "créer un compte"
-    
+
     signup_now: "créez un compte"
-    
+
     valid_email_needed: 'Veuillez nous fournir votre adresse email'

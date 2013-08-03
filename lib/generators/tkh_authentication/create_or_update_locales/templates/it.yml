@@ -1,10 +1,10 @@
 it:
-  
+
   activerecord:
     models:
       user: 'user'
       users: 'users'
-      
+
     attributes:
       user:
         first_name: "first name"
@@ -18,7 +18,7 @@ it:
     admin_enabled_confirmation: 'you have empowered this user to be an administrator'
     create_account: 'create an account'
     disable_admin: 'disable'
-    enable_admin: 'enable' 
+    enable_admin: 'enable'
     forgot_password: "forgot your password?"
     login_confirmation: "You have been logged in!"
     login_now: "log in"
@@ -45,6 +45,6 @@ it:
       email_or_password_invalid: "Email or password is invalid"
       login_needed: "You must be logged in to access this page. You have been redirected to the login form."
       no_such_email: "We do not have any accounts with the email you have provided."
-      password_reset_expired: "Password reset has expired. There was a 24 hours grace period"
+      password_reset_expired: "Password reset has expired. There was a 2 hours grace period"
       restricted_access: "This section is reserved to the site's administrators. Contact the site owner if you would like access to be granted to you."
-    
+
