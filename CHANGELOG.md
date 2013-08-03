@@ -1,6 +1,14 @@
 # TKH Authentication
 
 
+
+## 0.1.9
+
+* Change click flow for new users to sign up
+* Signup and login routine are now aware of the tkh_mailing_list gem and its records
+* Email address must be validated before creating an account
+
+
 ## 0.1.8
 
 * Added other name attribute to user model
