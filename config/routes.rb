@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         post :make_admin
         post :remove_admin
       end
+      collection { post :detect_existence }
     end
     resources :sessions
     resources :password_resets
