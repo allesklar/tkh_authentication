@@ -20,6 +20,8 @@ fr:
     create_account: 'créez un compte'
     disable_admin: 'enlever le pouvoir'
     enable_admin: 'donner le pouvoir'
+    email_validation_subject: "Vérification de votre adresse email"
+    email_validation_instructions: "Pour confirmer votre adresse email, veuillez accéder cette page web et créer un mot de passe : %{reset_url}\n\nSi vous ne désirez pas créer un compte sur notre site, veuillez ignorer cet email."
     forgot_password: "avez vous oublié votre mot de passe ?"
     login_confirmation: "Merci de vous être identifié !"
     login_now: "identifiez-vous"

@@ -19,7 +19,9 @@ class PasswordResetsController < ApplicationController
     if @user.password_reset_sent_at < 2.hours.ago
       redirect_to new_password_reset_path, :alert => t('authentication.warning.password_reset_expired')
     elsif @user.update_attributes(params[:user])
-      redirect_to root_url, :notice => t('authentication.password_reset_confirmation')
+      cookies[:auth_token] = @user.auth_token # logging in the user
+      redirect_to session[:target_page] || safe_root_url, notice: t('authentication.password_reset_confirmation')
+      session[:target_page] = nil
     else
       render :edit
     end

@@ -25,14 +25,20 @@ class UsersController < ApplicationController
   end
 
   def detect_existence
+    set_target_page
     user = User.where('email = ?', params[:user][:email]).first
-    if user && !user.password_digest.blank?
-      set_target_page
+    if user && !user.password_digest.blank? && user.password != 'temporary'
       flash[:notice] = "Our records show you have an account with us. Please login."
       redirect_to login_path
     else
-      flash[:notice] = "Our records show you do not have an account with us. Please create an account."
-      redirect_to signup_path
+      if user
+        newbie = Newbie.where('email = ?', params[:user][:email]).first
+      else
+        newbie = Newbie.create(email: params[:user][:email])
+      end
+      newbie.send_password_set
+      flash[:notice] = "Our records show you do not have an account with us. We need to verify your email address. Please check your email inbox (or spam filter if you have nothing after several minutes) and click on the confirmation link."
+      redirect_to safe_root_url
     end
   end
 

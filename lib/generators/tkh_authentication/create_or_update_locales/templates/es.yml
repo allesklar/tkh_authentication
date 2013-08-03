@@ -19,6 +19,8 @@ es:
     create_account: 'crea tu cuenta'
     disable_admin: 'eliminar el poder'
     enable_admin: 'autorizar'
+    email_validation_subject: "Email validation"
+    email_validation_instructions: "To confirm your email address, please visit this link: %{reset_url} and create your password \n\nIf you did not wish to create a new account with us, please ignore this email."
     forgot_password: '¿olvidaste tu contraseña?'
     login_confirmation: 'Conectado con éxito'
     login_now: "conectar"
