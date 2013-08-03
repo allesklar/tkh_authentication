@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
+    set_target_page
     redirect_to root_path if current_user
   end
 
   def create
-    user = User.find_by_email(params[:email])
     set_target_page
+    user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token
@@ -25,9 +26,9 @@ class SessionsController < ApplicationController
     cookies.delete(:auth_token)
     redirect_to safe_root_url, notice: t('authentication.logout_confirmation')
   end
-  
+
   private
-  
+
   def set_target_page
     session[:target_page] = request.referer unless session[:target_page] # && !request.referer.nil?
   end
