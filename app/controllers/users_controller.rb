@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def detect_existence
     user = User.where('email = ?', params[:user][:email]).first
     if user && !user.password_digest.blank?
+      set_target_page
       flash[:notice] = "Our records show you have an account with us. Please login."
       redirect_to login_path
     else
