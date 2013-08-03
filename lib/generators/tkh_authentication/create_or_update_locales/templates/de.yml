@@ -1,10 +1,10 @@
 de:
-  
+
   activerecord:
     models:
       user: 'Benutzer'
       users: 'Benutzer'
-      
+
     attributes:
       user:
         admin: 'Administrator'
@@ -46,5 +46,5 @@ de:
       email_or_password_invalid: "Email oder Kennwort ungültig"
       login_needed: "Du musst dich einloggen um auf diese Seite zuzugreifen. Du wurdest zum Login umgeleitet."
       no_such_email: "Es gibt kein Nutzerkonto mit dieser Email-Adresse."
-      password_reset_expired: "Das Zurücksetzen des Kennworts ist abgelaufen. Dies war nur für 24 Stunden möglich"
+      password_reset_expired: "Das Zurücksetzen des Kennworts ist abgelaufen. Dies war nur für 2 Stunden möglich"
       restricted_access: "Diese Sektion ist nur für Administratoren zugänglich. Kontaktiere den Inhaber der Webseite, wenn du Administrator-Rechte erhalten möchtest."
