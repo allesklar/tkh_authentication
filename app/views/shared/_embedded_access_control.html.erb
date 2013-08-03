@@ -1,5 +1,4 @@
 <div class="embedded-access-control">
-  <p><label class="label label-info"><%= t('comments.login_needed') %></label></p>
-  <%= render 'users/detect_user_existence_form', user: User.new %>
+  <%= render 'users/detect_user_existence_form', user: (current_user || User.new) %>
 </div>
 
