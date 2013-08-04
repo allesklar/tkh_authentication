@@ -24,7 +24,7 @@
 						<span class="label label-success">✓</span> <%= link_to t('authentication.disable_admin'), remove_admin_user_path(user), class: 'btn btn-mini', method: :post %>
 					<% end -%>
 				</td>
-				<td><%= link_to t('edit'), edit_detail_path(user), class: 'btn btn-mini' %></td>
+				<td><%= link_to t('edit'), edit_detail_path(user), class: 'btn btn-mini' %><%= link_to t('delete'), Detail.find(user.id), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-mini btn-danger' %></td>
 		  </tr>
 		<% end %>
 	</tbody>
