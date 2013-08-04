@@ -1,6 +1,11 @@
 # TKH Authentication
 
 
+## 0.1.10
+
+* Debugged the user has comments dependent destroy bug
+* Added a user delete button to the index view. Connected with tkh_mailing_list gem details controller.
+
 
 ## 0.1.9
 
