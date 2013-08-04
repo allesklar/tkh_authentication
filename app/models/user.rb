@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   # associations connected to tkh_content gem. Any page or comment model will do
   has_many :pages
-  has_many :comments, :dependent => :destroy
+  has_many :comments, :dependent => :destroy, foreign_key: 'author_id'
 
   # not allowed are :admin:boolean, :auth_token:string, password_reset_token:string, password_reset_sent_at:datetime
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :other_name
