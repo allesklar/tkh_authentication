@@ -26,10 +26,11 @@ class UsersController < ApplicationController
 
   def detect_existence
     set_target_page
-    user = User.where('email = ?', params[:user][:email]).first
+    @detected_email = params[:user][:email]
+    user = User.where('email = ?',@detected_email).first
     if user && !user.password_digest.blank? && user.password != 'temporary'
       flash[:notice] = "Our records show you have an account with us. Please login."
-      redirect_to login_path
+      redirect_to login_path(email: @detected_email)
     else
       if user
         newbie = Newbie.where('email = ?', params[:user][:email]).first
