@@ -1,7 +1,6 @@
 <%= form_tag sessions_path, class: 'simple_form form-horizontal' do %>
 
 	<div class="form-inputs">
-		
 	  <div class="control-group email required">
 	    <%= label_tag :email, t('activerecord.attributes.user.email'), class: "email required control-label" %>
 			<div class="controls">
@@ -9,7 +8,7 @@
 				<p class="help-block"><%= link_to t('authentication.not_registered'), signup_path %></p>
 			</div>
 	  </div>
-	
+
 		<div class="control-group password required">
 	    <%= label_tag :password, t('activerecord.attributes.user.password'), class: "password required control-label" %>
 			<div class="controls">
@@ -23,11 +22,11 @@
 				<label class="checkbox"><input class="boolean optional" id="remember_me" name="remember_me" type="checkbox" value="1" /><%= t('authentication.remember_me') %></label>
 			</div>
 		</div>
-	
+
 	</div>
-	
+
 	<div class="form-actions">
     <%= submit_tag t('authentication.login_now'), class: 'btn btn-primary' %>
   </div>
-	
+
 <% end %>
