@@ -1,6 +1,12 @@
 # TKH Authentication
 
 
+## 0.1.11
+
+* Ensure the target page is always set and removed when needed to improve the click-flow of users signing in or creating an account.
+* When user is redirected to login page from the detect address view, his entered email address follows with.
+
+
 ## 0.1.10
 
 * Debugged the user has comments dependent destroy bug
