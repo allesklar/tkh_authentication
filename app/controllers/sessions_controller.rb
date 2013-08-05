@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = user.auth_token
       end
       redirect_to (session[:target_page] || safe_root_url), notice: t('authentication.login_confirmation')
-      session[:target_page] = nil
+      destroy_target_page
     else
       flash.now.alert = t('authentication.warning.email_or_password_invalid')
       render "new"
@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
+    destroy_target_page
     redirect_to safe_root_url, notice: t('authentication.logout_confirmation')
   end
 
@@ -31,6 +32,10 @@ class SessionsController < ApplicationController
 
   def set_target_page
     session[:target_page] = request.referer unless session[:target_page] # && !request.referer.nil?
+  end
+
+  def destroy_target_page
+    session[:target_page] = nil
   end
 
 end

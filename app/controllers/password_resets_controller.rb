@@ -21,9 +21,16 @@ class PasswordResetsController < ApplicationController
     elsif @user.update_attributes(params[:user])
       cookies[:auth_token] = @user.auth_token # logging in the user
       redirect_to session[:target_page] || safe_root_url, notice: t('authentication.password_reset_confirmation')
+      destroy_target_page
     else
       render :edit
     end
+  end
+
+  private
+
+  def destroy_target_page
+    session[:target_page] = nil
   end
 
 end
