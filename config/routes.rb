@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
     resources :users do
       member do
+        get  :get_names
+        put :save_names_and_validate_email
         post :make_admin
         post :remove_admin
       end
