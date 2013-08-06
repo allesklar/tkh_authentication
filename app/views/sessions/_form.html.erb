@@ -4,7 +4,7 @@
 	  <div class="control-group email required">
 	    <%= label_tag :email, t('activerecord.attributes.user.email'), class: "email required control-label" %>
 			<div class="controls">
-		    <%= text_field_tag :email, params[:email], :html => { class: 'string email required' } %>
+		    <%= text_field_tag :email, params[:email], class: 'string email required', autofocus: true %>
 				<p class="help-block"><%= link_to t('authentication.not_registered'), signup_path %></p>
 			</div>
 	  </div>
