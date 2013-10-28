@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
   scope :alphabetically, -> { order('last_name, first_name') }
   scope :administrators, -> { where('admin = ?', true) }
+  scope :by_recent, -> { order('updated_at desc') }
 
   before_create { generate_token(:auth_token) }
 
@@ -27,7 +28,6 @@ class User < ActiveRecord::Base
     "#{id}-#{name.to_url}"
   end
 
-  scope :by_recent, :order => 'updated_at desc'
 
   def name
     "#{first_name} #{last_name}".strip
