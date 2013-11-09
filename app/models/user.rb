@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy, foreign_key: 'author_id'
 
   # not allowed are :admin:boolean, :auth_token:string, password_reset_token:string, password_reset_sent_at:datetime
-  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :other_name
+  # attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :other_name
 
   validates_presence_of :email
   validates_uniqueness_of :email, :case_sensitive => false
