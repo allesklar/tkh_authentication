@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.1"
+  s.add_dependency "rails", "> 4.0"
   s.add_dependency 'bcrypt-ruby', '~> 3.1.2'
   s.add_dependency 'simple_form', '3.0.0.rc'
   s.add_dependency 'stringex'
