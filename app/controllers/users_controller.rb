@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     set_target_page
     if @user.save
       cookies[:auth_token] = @user.auth_token # logging in the user
@@ -61,6 +61,11 @@ class UsersController < ApplicationController
 
   def set_target_page
     session[:target_page] = request.referer unless session[:target_page] # && !request.referer.nil?
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit :email, :password, :password_confirmation, :first_name, :last_name, :other_name
   end
 
 end
