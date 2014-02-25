@@ -2,6 +2,14 @@
 
 
 
+## 0.9.3
+
+* Various fixes and tweaks related to the Rails 4 upgrade
+* Added other_name attribute to user model
+* Added edit feature to user resource
+* Started to change the flow of user creation. Will eventually confirm email and be ajaxified.
+
+
 ## 0.9
 
 * Upgraded gem to Rails 4
