@@ -19,12 +19,12 @@
 				<td><%= user.email %></td>
 				<td>
 					<% unless user.admin? %>
-					  <span class="label label-important">X</span> <%= link_to t('authentication.enable_admin'), make_admin_user_path(user), class: 'btn btn-mini', method: :post %>
+					  <span class="label label-danger">X</span> <%= link_to t('authentication.enable_admin'), make_admin_user_path(user), class: 'btn btn-xs btn-default', method: :post %>
 					<% else %>
-						<span class="label label-success">✓</span> <%= link_to t('authentication.disable_admin'), remove_admin_user_path(user), class: 'btn btn-mini', method: :post %>
+						<span class="label label-success">✓</span> <%= link_to t('authentication.disable_admin'), remove_admin_user_path(user), class: 'btn btn-xs btn-primary', method: :post %>
 					<% end -%>
 				</td>
-				<td><%= link_to t('edit'), edit_detail_path(user), class: 'btn btn-mini' %><%= link_to t('delete'), Detail.find(user.id), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-mini btn-danger' %></td>
+				<td><%= link_to t('edit'), edit_detail_path(user), class: 'btn btn-xs btn-default' %><%= link_to t('delete'), Detail.find(user.id), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-xs btn-danger' %></td>
 		  </tr>
 		<% end %>
 	</tbody>
