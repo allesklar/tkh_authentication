@@ -2,6 +2,11 @@
 
 
 
+## 0.9.4
+
+* Improved formatting of user index buttons
+
+
 ## 0.9.3
 
 * Various fixes and tweaks related to the Rails 4 upgrade
