@@ -2,6 +2,11 @@
 
 
 
+## 0.9.5
+
+* Debugged a find_by_attribute method
+
+
 ## 0.9.4
 
 * Improved formatting of user index buttons
