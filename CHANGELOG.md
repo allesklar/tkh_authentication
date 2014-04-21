@@ -2,6 +2,13 @@
 
 
 
+## 0.9.6
+
+* Upgraded Rails and simple_form dependencies.
+* Updated bcrypt gem.
+* Added DB migration related to email validation.
+
+
 ## 0.9.5
 
 * Debugged a find_by_attribute method
