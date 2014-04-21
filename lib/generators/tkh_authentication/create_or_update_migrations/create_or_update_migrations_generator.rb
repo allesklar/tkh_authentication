@@ -19,6 +19,7 @@ module TkhAuthentication
         puts 'creating user migration'
         migration_template "create_users.rb", "db/migrate/create_users.rb"
         migration_template "add_other_name_to_users.rb", "db/migrate/add_other_name_to_users.rb"
+        migration_template "add_email_validation_to_users.rb", "db/migrate/add_email_validation_to_users.rb"
       end
 
     end
