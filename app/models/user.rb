@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_secure_password
+  has_secure_password(validations: false)
 
   # associations connected to tkh_content gem. Any page or comment model will do
   has_many :pages
