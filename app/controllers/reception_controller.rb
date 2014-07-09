@@ -23,6 +23,8 @@ class ReceptionController < ApplicationController
 
     else # the email address was already in the database
       # Returning user pathway goes here
+      # user email already validated?
+      # existing password?
       # redirect_to :back, notice: "Hi there #{@user.email}!"
     end
   end
@@ -32,11 +34,10 @@ class ReceptionController < ApplicationController
     if @user && @user.email_validation_token_sent_at >= Time.zone.now - 1.hour
       @user.email_validated = true
       @user.save
-      # below is true for some of them. make sure first they don't have one.
-      # TODO users who validate later on should be redirected to password creation and login page
       if @user.password_digest.blank?
-        flash[:notice] = "IN CONSTRUCTION. You will soon be redirected to the password creation page"
-        redirect_to email_input_path
+        # Create password_set_token
+        # Pass token to redirect_to call
+        redirect_to create_your_password_path, notice: "Your email has been validated. There is 1 last step!"
       else
         flash[:notice] = "IN CONSTRUCTION. You will soon be redirected to the login with password page"
         redirect_to email_input_path
@@ -46,6 +47,17 @@ class ReceptionController < ApplicationController
     else
       redirect_to email_input_url, alert: "We were unable to validate your email. Please try again and make sure you are using a valid email address."
     end
+  end
+
+  def create_your_password
+    # get method
+    # create two password_set_token attributes in email validation
+    # Pass the token to this method
+    # Create the form for the user to input their password
+  end
+
+  def password_creation
+    # post method
   end
 
   private

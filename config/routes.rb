@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   # New access control pathway
   get '/reception', to: 'reception#email_input', as: 'email_input'
   post '/parse_email', to: 'reception#parse_email'
-  get '/email_validation' => 'reception#email_validation'
+  get '/email_validation', to: 'reception#email_validation'
+  get '/create_your_password', to: 'reception#create_your_password'
+  post '/password_creation', to: 'reception#password_creation'
 
 end
