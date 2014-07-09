@@ -1,0 +1,7 @@
+Hello. We need to verify your email address.
+
+To protect your privacy, we need you to confirm you are the owner of the <%= @user.email %> address.
+
+Please visit this activation link: <%= email_validation_url(token: @user.email_validation_token) %>
+
+Thank you for visiting our site. We appreciate your presence.

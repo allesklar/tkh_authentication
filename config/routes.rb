@@ -14,4 +14,10 @@ Rails.application.routes.draw do
     resources :sessions
     resources :password_resets
   end
+
+  # New access control pathway
+  get '/reception', to: 'reception#email_input', as: 'email_input'
+  post '/parse_email', to: 'reception#parse_email'
+  get '/email_validation' => 'reception#email_validation'
+
 end

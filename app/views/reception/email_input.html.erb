@@ -1,0 +1,25 @@
+<% content_for :meta_title, 'Login with your email' %>
+<% content_for :meta_description, "We need your email address to initiate the login or account creation procedure." %>
+
+<% unless current_user # most folks coming to this page should not be logged in %>
+
+  <h1>Login</h1>
+
+  <%= simple_form_for User.new, url: parse_email_path do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :email, autofocus: true, label: 'Please enter your email address' %>
+
+    <%= f.button :submit, 'proceed', :class => 'btn btn-primary' %>
+  <% end %>
+
+<% else # the user is already logged in %>
+
+  <h1>You are already logged in</h1>
+  <p>This is the login page but it appears that you are already logged in with this address: <strong><%= current_user.email %></strong></p>
+
+  <% # TODO create nice button %>
+
+  <p>button LOGOUT button ???</p>
+
+<% end %>
