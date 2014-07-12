@@ -1,14 +1,17 @@
 class ReceptionController < ApplicationController
 
+  # TODO in logging in. remember me box
+  # TODO logout route
+
   def email_input
+    set_target_page
   end
 
   def parse_email
+    set_target_page
     @user = User.find_by(email: params[:user][:email])
 
     unless @user # first take care of the easy case with a completely new user
-      # handle here the new user
-      set_target_page
       # create new record
       @user = User.new(user_params)
       if @user.save
@@ -25,7 +28,8 @@ class ReceptionController < ApplicationController
       # Returning user pathway goes here
       # user email already validated?
       # existing password?
-      # redirect_to :back, notice: "Hi there #{@user.email}!"
+      flash[:notice] = "There is a record in the database with the address #{@user.email}."
+      redirect_to root_path
     end
   end
 
@@ -51,18 +55,27 @@ class ReceptionController < ApplicationController
 
   def create_your_password
     @user = User.find_by(password_creation_token: params[:password_creation_token])
+    # TODO user with this token not present in DB
   end
 
   def password_creation
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      cookies[:auth_token] = @user.auth_token # logging in the user
-      flash[:notice] = "Your new password was created and you have been logged in."
-      redirect_to session[:target_page] || root_path
-      session[:target_page] = nil
-    else
-      flash[:alert] = "Some problems occurred while trying to create your password"
-      render create_new_password
+    # check for equality of password and password_confirmation
+    if params[:user][:password] == params[:user][:password_confirmation]
+
+      # check for expiration of password_creation_token
+
+      if @user.update(user_params)
+        cookies[:auth_token] = @user.auth_token # logging in the user
+        flash[:notice] = "Your new password was created and you have been logged in."
+        redirect_to session[:target_page] || root_path
+        destroy_target_page
+      else
+        flash[:alert] = "Some problems occurred while trying to create your password"
+        render create_your_password
+      end
+    else # password and password_confirmation don't match
+      redirect_to :back, alert: 'Password and password confirmation values must match'
     end
   end
 
@@ -70,6 +83,10 @@ class ReceptionController < ApplicationController
 
   def set_target_page
     session[:target_page] = request.referer unless session[:target_page]
+  end
+
+  def destroy_target_page
+    session[:target_page] = nil
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
