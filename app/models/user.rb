@@ -6,16 +6,8 @@ class User < ActiveRecord::Base
   has_many :pages
   has_many :comments, :dependent => :destroy, foreign_key: 'author_id'
 
-  # not allowed are :admin:boolean, :auth_token:string, password_reset_token:string, password_reset_sent_at:datetime
-  # attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :other_name
-
   validates_presence_of :email
   validates_uniqueness_of :email, :case_sensitive => false
-  # validates_presence_of :password, on: :create
-
-  # TODO - this needs to be somehow integrated in the click flow
-  # validates_presence_of :first_name
-  # validates_presence_of :last_name
 
   scope :alphabetically, -> { order('last_name, first_name') }
   scope :administrators, -> { where('admin = ?', true) }

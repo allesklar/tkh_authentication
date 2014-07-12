@@ -35,9 +35,9 @@ class ReceptionController < ApplicationController
       @user.email_validated = true
       @user.save
       if @user.password_digest.blank?
-        # Create password_set_token
-        # Pass token to redirect_to call
-        redirect_to create_your_password_path, notice: "Your email has been validated. There is 1 last step!"
+        set_password_creation_token
+        flash[:notice] = "Your email has been validated. There is 1 last step!"
+        redirect_to create_your_password_path(password_creation_token: @user.password_creation_token)
       else
         flash[:notice] = "IN CONSTRUCTION. You will soon be redirected to the login with password page"
         redirect_to email_input_path
@@ -50,14 +50,20 @@ class ReceptionController < ApplicationController
   end
 
   def create_your_password
-    # get method
-    # create two password_set_token attributes in email validation
-    # Pass the token to this method
-    # Create the form for the user to input their password
+    @user = User.find_by(password_creation_token: params[:password_creation_token])
   end
 
   def password_creation
-    # post method
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      cookies[:auth_token] = @user.auth_token # logging in the user
+      flash[:notice] = "Your new password was created and you have been logged in."
+      redirect_to session[:target_page] || root_path
+      session[:target_page] = nil
+    else
+      flash[:alert] = "Some problems occurred while trying to create your password"
+      render create_new_password
+    end
   end
 
   private
@@ -72,8 +78,17 @@ class ReceptionController < ApplicationController
   end
 
   def set_email_validation_token
+    # TODO create urlsafe token
+    # TODO make sure token is unique. see generate_token method in user model.
     @user.email_validation_token = SecureRandom.hex(30)
     @user.email_validation_token_sent_at = Time.zone.now
+    @user.save
+  end
+
+  def set_password_creation_token
+    # TODO make sure token is unique. see generate_token method in user model.
+    @user.password_creation_token = SecureRandom.urlsafe_base64
+    @user.password_creation_token_sent_at = Time.zone.now
     @user.save
   end
 

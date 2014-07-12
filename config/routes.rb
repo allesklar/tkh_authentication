@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   post '/parse_email', to: 'reception#parse_email'
   get '/email_validation', to: 'reception#email_validation'
   get '/create_your_password', to: 'reception#create_your_password'
-  post '/password_creation', to: 'reception#password_creation'
+  post '/password_creation/:id', to: 'reception#password_creation', as: 'password_creation'
 
 end
