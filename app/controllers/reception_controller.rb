@@ -3,12 +3,12 @@ class ReceptionController < ApplicationController
   # TODO in logging in. remember me box
   # TODO logout route
 
+  before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password ]
+
   def email_input
-    set_target_page
   end
 
   def parse_email
-    set_target_page
     @user = User.find_by(email: params[:user][:email])
 
     unless @user # first take care of the easy case with a completely new user
