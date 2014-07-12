@@ -95,16 +95,13 @@ class ReceptionController < ApplicationController
   end
 
   def set_email_validation_token
-    # TODO create urlsafe token
-    # TODO make sure token is unique. see generate_token method in user model.
-    @user.email_validation_token = SecureRandom.hex(30)
+    @user.generate_token(:email_validation_token)
     @user.email_validation_token_sent_at = Time.zone.now
     @user.save
   end
 
   def set_password_creation_token
-    # TODO make sure token is unique. see generate_token method in user model.
-    @user.password_creation_token = SecureRandom.urlsafe_base64
+    @user.generate_token(:password_creation_token)
     @user.password_creation_token_sent_at = Time.zone.now
     @user.save
   end
