@@ -1,8 +1,9 @@
 class ReceptionController < ApplicationController
 
-  # TODO NEXT STEP - password checking method
   # TODO in logging in. remember me box
   # TODO login security for email non-validated and nil password
+  # TODO Add forgot your password link
+  # TODO password reset
 
   before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password, :enter_your_password ]
 
@@ -90,15 +91,18 @@ class ReceptionController < ApplicationController
 
   def password_checking
     @user = User.find(params[:id])
-
-    # TODO NEXT
-    if @user && @user.authenticate(params[:user][:password])
-      login_the_user
-      redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
-      destroy_target_page
-    else
-      flash.now.alert = t('authentication.warning.email_or_password_invalid')
-      render "enter_your_password"
+    if @user
+      if @user.authenticate(params[:user][:password])
+        login_the_user
+        redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
+        destroy_target_page
+      else # most linkely wrong password
+        flash.now.alert = t('authentication.warning.email_or_password_invalid')
+        render "enter_your_password"
+      end
+    else # we can't find the user in the database
+      flash[:alert] = "We were unable to find your email in the database. Please try again and make sure you are using a valid email address."
+      redirect_to email_input_url
     end
   end
 
