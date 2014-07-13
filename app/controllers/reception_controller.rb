@@ -1,7 +1,7 @@
 class ReceptionController < ApplicationController
 
+  # TODO NEXT STEP - password checking method
   # TODO in logging in. remember me box
-  # TODO enter password
   # TODO login security for email non-validated and nil password
 
   before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password, :enter_your_password ]
@@ -26,7 +26,7 @@ class ReceptionController < ApplicationController
     else # the email address was already in the database
       # Returning user pathway goes here
       if @user.email_validated? && @user.has_a_password?
-        flash[:notice] = "Please enter your password"
+        # flash[:notice] = "Please enter your password" # redundant
         redirect_to enter_your_password_path(auth_token: @user.auth_token)
       elsif @user.email_validated? && !@user.has_a_password?
         set_password_creation_token
@@ -50,8 +50,7 @@ class ReceptionController < ApplicationController
         flash[:notice] = "Your email has been validated. There is 1 last step!"
         redirect_to create_your_password_path(password_creation_token: @user.password_creation_token)
       else
-        flash[:notice] = "IN CONSTRUCTION. You will soon be redirected to the login with password page"
-        redirect_to email_input_path
+        redirect_to enter_your_password_path(auth_token: @user.auth_token)
       end
     elsif @user && @user.email_validation_token_sent_at <= Time.zone.now - 1.hour
       redirect_to email_input_url, alert: "Your verification token was created over an hour ago. Please restart the process."
@@ -67,7 +66,6 @@ class ReceptionController < ApplicationController
 
   def password_creation
     @user = User.find(params[:id])
-    # check for equality of password and password_confirmation
     if params[:user][:password] == params[:user][:password_confirmation]
 
       # TODO check for expiration of password_creation_token
@@ -94,18 +92,14 @@ class ReceptionController < ApplicationController
     @user = User.find(params[:id])
 
     # TODO NEXT
-    # if user && user.authenticate(params[:password])
-    #   if params[:remember_me]
-    #     cookies.permanent[:auth_token] = user.auth_token
-    #   else
-    #     cookies[:auth_token] = user.auth_token
-    #   end
-    #   redirect_to (session[:target_page] || safe_root_url), notice: t('authentication.login_confirmation')
-    #   destroy_target_page
-    # else
-    #   flash.now.alert = t('authentication.warning.email_or_password_invalid')
-    #   render "new"
-    # end
+    if @user && @user.authenticate(params[:user][:password])
+      login_the_user
+      redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
+      destroy_target_page
+    else
+      flash.now.alert = t('authentication.warning.email_or_password_invalid')
+      render "enter_your_password"
+    end
   end
 
   def disconnect
@@ -116,17 +110,17 @@ class ReceptionController < ApplicationController
 
   private
 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit :email, :password, :password_confirmation, :first_name, :last_name, :other_name
+  end
+
   def set_target_page
     session[:target_page] = request.referer unless session[:target_page]
   end
 
   def destroy_target_page
     session[:target_page] = nil
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def user_params
-    params.require(:user).permit :email, :password, :password_confirmation, :first_name, :last_name, :other_name
   end
 
   def send_validation_email
@@ -147,7 +141,11 @@ class ReceptionController < ApplicationController
   end
 
   def login_the_user
-    cookies[:auth_token] = @user.auth_token
+    if params[:remember_me]
+      cookies.permanent[:auth_token] = @user.auth_token
+    else
+      cookies[:auth_token] = @user.auth_token
+    end
   end
 
 end
