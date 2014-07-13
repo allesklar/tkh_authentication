@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-    get 'signup', to: 'users#new', as: 'signup'
-    get 'login', to: 'sessions#new', as: 'login'
-    get 'logout', to: 'sessions#destroy', as: 'logout'
+    # legacy routes. Pointing to new pathway.
+    get 'signup', to: 'reception#email_input', as: 'signup'
+    get 'login', to: 'reception#email_input', as: 'login'
+    get 'logout', to: 'reception#disconnect', as: 'logout'
 
     resources :users do
       member do
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
     get '/email_validation', to: 'reception#email_validation'
     get '/create_your_password', to: 'reception#create_your_password'
     post '/password_creation/:id', to: 'reception#password_creation', as: 'password_creation'
-
+    get '/enter_your_password', to: 'reception#enter_your_password'
+    post '/password_checking/:id', to: 'reception#password_checking', as: 'password_checking'
+    get '/disconnect', to: 'reception#disconnect'
   end
 end
