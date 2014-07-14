@@ -1,9 +1,14 @@
 class ReceptionController < ApplicationController
 
-  # TODO in logging in. remember me box
+  # TODO in logging in. remember me box in forms
   # TODO login security for email non-validated and nil password
   # TODO Add forgot your password link
   # TODO password reset
+  # TODO wanna log in w. different email?
+
+  # TODO Ajaxify everything.
+  # TODO change email address - may be a profile feature in tkh_mailing_list
+  # TODO localize the whole process
 
   before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password, :enter_your_password ]
 
@@ -21,13 +26,13 @@ class ReceptionController < ApplicationController
         flash[:notice] = "Your record has been successfully created."
         # show screen to user with notice about email validation
       else # problem saving new user record for some reason
-        # render "new"
+        redirect_to email_input_path, alert: "We had problems creating your record. Please try again. Make sure the email address is valid."
       end
 
     else # the email address was already in the database
       # Returning user pathway goes here
       if @user.email_validated? && @user.has_a_password?
-        # flash[:notice] = "Please enter your password" # redundant
+        # flash[:notice] = "Please enter your password" # redundent
         redirect_to enter_your_password_path(auth_token: @user.auth_token)
       elsif @user.email_validated? && !@user.has_a_password?
         set_password_creation_token
@@ -35,7 +40,7 @@ class ReceptionController < ApplicationController
         redirect_to create_your_password_path(password_creation_token: @user.password_creation_token)
       elsif !@user.email_validated?
         send_validation_email
-        flash[:notice] = "Your email address has not yet been verified."
+        flash[:notice] = "For your security, we need to verify your email address."
         # show screen to user with notice about email validation
       end
     end
@@ -62,7 +67,9 @@ class ReceptionController < ApplicationController
 
   def create_your_password
     @user = User.find_by(password_creation_token: params[:password_creation_token])
-    # TODO user with this token not present in DB
+    if @user.blank?
+      redirect_to email_input_url, alert: "We were unable the record in the database. Please restart the process and make sure you are using a valid email address."
+    end
   end
 
   def password_creation
@@ -70,6 +77,8 @@ class ReceptionController < ApplicationController
     if params[:user][:password] == params[:user][:password_confirmation]
 
       # TODO check for expiration of password_creation_token
+
+      # TODO security for email non-validated and nil password
 
       if @user.update(user_params)
         login_the_user
@@ -90,6 +99,7 @@ class ReceptionController < ApplicationController
   end
 
   def password_checking
+    # TODO security for email non-validated and nil password
     @user = User.find(params[:id])
     if @user
       if @user.authenticate(params[:user][:password])
@@ -107,8 +117,9 @@ class ReceptionController < ApplicationController
   end
 
   def disconnect
+    set_target_page
     cookies.delete(:auth_token)
-    redirect_to root_url, notice: t('authentication.logout_confirmation')
+    redirect_to session[:target_page] || root_url, notice: t('authentication.logout_confirmation')
     destroy_target_page
   end
 
