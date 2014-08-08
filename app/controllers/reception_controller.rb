@@ -10,7 +10,7 @@ class ReceptionController < ApplicationController
   # TODO change email address - may be a profile feature in tkh_mailing_list
   # TODO localize the whole process
 
-  before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password, :enter_your_password ]
+  before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password, :enter_your_password, :disconnect ]
 
   def email_input
   end
@@ -36,6 +36,7 @@ class ReceptionController < ApplicationController
         redirect_to enter_your_password_path(auth_token: @user.auth_token)
       elsif @user.email_validated? && !@user.has_a_password?
         set_password_creation_token
+        # FIXME !!!!!!!!!!  need to use email to make sure hackers can't create password
         flash[:notice] = "There is 1 last step!"
         redirect_to create_your_password_path(password_creation_token: @user.password_creation_token)
       elsif !@user.email_validated?
@@ -48,17 +49,17 @@ class ReceptionController < ApplicationController
 
   def email_validation
     @user = User.where(email_validation_token: params[:token]).first
-    if @user && @user.email_validation_token_sent_at >= Time.zone.now - 1.hour
+    if @user && @user.email_validation_token_sent_at >= Time.zone.now - 1.hour # still valid token
       @user.email_validated = true
       @user.save
       unless @user.has_a_password?
         set_password_creation_token
         flash[:notice] = "Your email has been validated. There is 1 last step!"
         redirect_to create_your_password_path(password_creation_token: @user.password_creation_token)
-      else
+      else # the user has a password
         redirect_to enter_your_password_path(auth_token: @user.auth_token)
       end
-    elsif @user && @user.email_validation_token_sent_at <= Time.zone.now - 1.hour
+    elsif @user && @user.email_validation_token_sent_at <= Time.zone.now - 1.hour # expiredd token
       redirect_to email_input_url, alert: "Your verification token was created over an hour ago. Please restart the process."
     else
       redirect_to email_input_url, alert: "We were unable to validate your email. Please try again and make sure you are using a valid email address."
@@ -68,12 +69,12 @@ class ReceptionController < ApplicationController
   def create_your_password
     @user = User.find_by(password_creation_token: params[:password_creation_token])
     if @user.blank?
-      redirect_to email_input_url, alert: "We were unable the record in the database. Please restart the process and make sure you are using a valid email address."
+      redirect_to email_input_url, alert: "We were unable to find the record in the database. Please restart the process and make sure you are using a valid email address."
     end
   end
 
   def password_creation
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) # FIXME Is this secure. Should we find user by password_creation_token ?
     if params[:user][:password] == params[:user][:password_confirmation]
 
       # TODO check for expiration of password_creation_token
@@ -117,7 +118,6 @@ class ReceptionController < ApplicationController
   end
 
   def disconnect
-    set_target_page
     cookies.delete(:auth_token)
     redirect_to session[:target_page] || root_url, notice: t('authentication.logout_confirmation')
     destroy_target_page
