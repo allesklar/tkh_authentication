@@ -7,6 +7,9 @@ class ReceptionController < ApplicationController
   # TODO wanna log in w. different email?
 
   # TODO Ajaxify everything.
+
+  # Add name fields in login forms whenever they are all blank
+
   # TODO change email address - may be a profile feature in tkh_mailing_list
   # TODO localize the whole process
 
@@ -37,7 +40,6 @@ class ReceptionController < ApplicationController
         redirect_to enter_your_password_path(auth_token: @user.auth_token)
       elsif @user.email_validated? && !@user.has_a_password? # doesn't have a password
         # User needs to securily create a password
-        # FIXME !!!!!!!!!!  need to use email to make sure hackers can't create password
         send_password_creation_security_email
         flash[:notice] = "There is 1 last step!"
         # show screen to user with notice about password confirmation email
