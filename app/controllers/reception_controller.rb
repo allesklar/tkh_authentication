@@ -25,6 +25,7 @@ class ReceptionController < ApplicationController
         send_validation_email
         flash[:notice] = "Your record has been successfully created."
         # show screen to user with notice about email validation
+        @status = 'email_validation_email_sent'
       else # problem saving new user record for some reason
         redirect_to email_input_path, alert: "We had problems creating your record. Please try again. Make sure the email address is valid."
       end
@@ -34,15 +35,18 @@ class ReceptionController < ApplicationController
       if @user.email_validated? && @user.has_a_password?
         # flash[:notice] = "Please enter your password" # redundent
         redirect_to enter_your_password_path(auth_token: @user.auth_token)
-      elsif @user.email_validated? && !@user.has_a_password?
-        set_password_creation_token
+      elsif @user.email_validated? && !@user.has_a_password? # doesn't have a password
+        # User needs to securily create a password
         # FIXME !!!!!!!!!!  need to use email to make sure hackers can't create password
+        send_password_creation_security_email
         flash[:notice] = "There is 1 last step!"
-        redirect_to create_your_password_path(password_creation_token: @user.password_creation_token)
+        # show screen to user with notice about password confirmation email
+        @status = 'password_confirmation_email_sent'
       elsif !@user.email_validated?
         send_validation_email
         flash[:notice] = "For your security, we need to verify your email address."
         # show screen to user with notice about email validation
+        @status = 'email_validation_email_sent'
       end
     end
   end
@@ -147,6 +151,11 @@ class ReceptionController < ApplicationController
     @user.generate_token(:email_validation_token)
     @user.email_validation_token_sent_at = Time.zone.now
     @user.save
+  end
+
+  def send_password_creation_security_email
+    set_password_creation_token
+    ReceptionMailer.password_creation_verification_email(@user).deliver
   end
 
   def set_password_creation_token
