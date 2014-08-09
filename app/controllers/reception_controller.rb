@@ -1,8 +1,6 @@
 class ReceptionController < ApplicationController
 
   # TODO Add name fields in login forms whenever they are all blank
-  # TODO Add forgot your password link
-  # TODO password reset
 
   # TODO Ajaxify everything.
 
@@ -16,7 +14,6 @@ class ReceptionController < ApplicationController
 
   def parse_email
     @user = User.find_by(email: params[:user][:email])
-
     if @user.blank? # first take care of the easy case with a completely new user
       # create new record
       @user = User.new(user_params)
@@ -28,7 +25,6 @@ class ReceptionController < ApplicationController
       else # problem saving new user record for some reason
         redirect_to email_input_path, alert: "We had problems creating your record. Please try again. Make sure the email address is valid."
       end
-
     else # the email address was already in the database
       # Returning user pathway goes here
       if @user.email_validated? && @user.has_a_password?
@@ -90,7 +86,7 @@ class ReceptionController < ApplicationController
             render create_your_password
           end
         else # the token has expired
-          redirect_to email_input_path, alert: 'Sorry, your password_creation_token. To protect your privacy and ensure your security, we need to ask you to start the process over again. The token, when created, expires after 1 hour!'
+          redirect_to email_input_path, alert: 'Sorry, your password_creation_token has expired. To protect your privacy and ensure your security, we need to ask you to start the process over again. The token, when created, expires after 1 hour!'
         end
       else # password is blank or password and password_confirmation don't match
         redirect_to :back, alert: 'Your password cannot be blank and the password should be identical to the password confirmation. Please try again.'
@@ -123,6 +119,51 @@ class ReceptionController < ApplicationController
     else # we can't find the user in the database
       flash[:alert] = "We were unable to find your email in the database. Please try again and make sure you are using a valid email address."
       redirect_to email_input_url
+    end
+  end
+
+  def i_forgot_my_password
+  end
+
+  def request_new_password
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      send_new_password_request_email
+      # show confirmation screen
+    else
+      redirect_to i_forgot_my_password_path, alert: "We could not find a user with this email address: #{params[:user][:email]}. Please try again."
+    end
+  end
+
+  def change_your_password
+    @user = User.find_by(password_reset_token: params[:password_reset_token])
+    if @user.blank?
+      redirect_to email_input_url, alert: "We were unable to find the record in the database. Please restart the process and make sure you are using a valid email address."
+    end
+  end
+
+  def password_reset
+    @user = User.find(params[:id])
+    unless @user.blank?
+      if !params[:user][:password].blank? && (params[:user][:password] == params[:user][:password_confirmation])
+        if @user.password_reset_sent_at >= Time.zone.now - 1.hour # still valid token
+          if @user.update(user_params)
+            login_the_user
+            flash[:notice] = "Your password was changed and you have been logged in."
+            redirect_to session[:target_page] || root_path
+            destroy_target_page
+          else # did not update ?!?
+            flash[:alert] = "Some problems occurred while trying to change your password"
+            render change_your_password
+          end
+        else # the token has expired
+          redirect_to email_input_path, alert: 'Sorry, your password_reset_token has expired. To protect your privacy and ensure your security, we need to ask you to start the process over again. The token, when created, expires after 1 hour!'
+        end
+      else # password is blank or password and password_confirmation don't match
+        redirect_to :back, alert: 'Your password cannot be blank and the password should be identical to the password confirmation. Please try again.'
+      end
+    else # @user is blank
+      redirect_to email_input_path, alert: 'We could not find this user record in our database. Please start the process over.'
     end
   end
 
@@ -166,6 +207,17 @@ class ReceptionController < ApplicationController
   def set_password_creation_token
     @user.generate_token(:password_creation_token)
     @user.password_creation_token_sent_at = Time.zone.now
+    @user.save
+  end
+
+  def send_new_password_request_email
+    set_password_reset_token
+    ReceptionMailer.new_password_request_email(@user).deliver
+  end
+
+  def set_password_reset_token
+    @user.generate_token(:password_reset_token)
+    @user.password_reset_sent_at = Time.zone.now
     @user.save
   end
 

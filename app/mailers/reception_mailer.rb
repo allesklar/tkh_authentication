@@ -11,4 +11,9 @@ class ReceptionMailer < ActionMailer::Base
     mail(to: @user.email, subject: "Password creation confirmation for #{Setting.first.try(:site_name)}")
   end
 
+  def new_password_request_email(user)
+    @user = user
+    mail(to: @user.email, subject: "New Password Request for #{Setting.first.try(:site_name)}")
+  end
+
 end

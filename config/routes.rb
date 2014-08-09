@@ -9,8 +9,6 @@ Rails.application.routes.draw do
       end
       collection { post :detect_existence }
     end
-    resources :sessions
-    resources :password_resets
 
     ##### ACCESS CONTROL
     # legacy routes. Pointing to new pathway.
@@ -25,6 +23,10 @@ Rails.application.routes.draw do
     post '/password_creation/:id', to: 'reception#password_creation', as: 'password_creation'
     get '/enter_your_password', to: 'reception#enter_your_password'
     post '/password_checking/:id', to: 'reception#password_checking', as: 'password_checking'
+    get '/i_forgot_my_password', to: 'reception#i_forgot_my_password'
+    post '/request_new_password', to: 'reception#request_new_password'
+    get '/change_your_password', to: 'reception#change_your_password'
+    post '/password_reset/:id', to: 'reception#password_reset', as: 'password_reset'
     get '/disconnect', to: 'reception#disconnect'
 
   end
