@@ -30,16 +30,24 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}".strip
   end
 
-  def spiritual_name
-    @spiritual_name = other_name || first_name
+  def friendly_name
+    other_name || first_name
   end
 
-  def send_password_reset
-    generate_token(:password_reset_token)
-    self.password_reset_sent_at = Time.zone.now
-    save!
-    UserMailer.password_reset(self).deliver
+  def spiritual_name
+    other_name || name
   end
+
+  def visible_name_present? # used in tkh_authentication to determin whether to show name fields in login form
+    name.present? || other_name.present?
+  end
+
+  # def send_password_reset
+  #   generate_token(:password_reset_token)
+  #   self.password_reset_sent_at = Time.zone.now
+  #   save!
+  #   UserMailer.password_reset(self).deliver
+  # end
 
   def has_a_password?
     password_digest

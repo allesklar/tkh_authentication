@@ -5,6 +5,7 @@ class ReceptionController < ApplicationController
   # TODO Ajaxify everything.
 
   # TODO change email address - may be a profile feature in tkh_mailing_list
+  # TODO change password -              ""
   # TODO localize the whole process
 
   before_action :set_target_page, only: [ :email_input, :parse_email, :email_validation, :create_your_password, :enter_your_password, :disconnect ]
@@ -102,6 +103,7 @@ class ReceptionController < ApplicationController
 
   def password_checking
     @user = User.find(params[:id])
+    @user.update(user_params) # should we test for failure?
     if @user
       if @user.email_validated?
         if @user.authenticate(params[:user][:password])
