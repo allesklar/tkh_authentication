@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email, :case_sensitive => false
 
+  attr_accessor :remember_me
+
   scope :alphabetically, -> { order('last_name, first_name') }
   scope :administrators, -> { where('admin = ?', true) }
   scope :by_recent, -> { order('updated_at desc') }
@@ -19,7 +21,6 @@ class User < ActiveRecord::Base
   def to_param
     "#{id}-#{name.to_url}"
   end
-
 
   def name
     "#{first_name} #{last_name}".strip

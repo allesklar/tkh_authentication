@@ -167,7 +167,7 @@ class ReceptionController < ApplicationController
   end
 
   def login_the_user
-    if params[:remember_me]
+    if params[:user][:remember_me].to_i == 1
       cookies.permanent[:auth_token] = @user.auth_token
     else
       cookies[:auth_token] = @user.auth_token
