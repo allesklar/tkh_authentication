@@ -1,14 +1,11 @@
 class ReceptionController < ApplicationController
 
-  # TODO in logging in. remember me box in forms
   # TODO login security for email non-validated and nil password
+  # TODO Add name fields in login forms whenever they are all blank
   # TODO Add forgot your password link
   # TODO password reset
-  # TODO wanna log in w. different email?
 
   # TODO Ajaxify everything.
-
-  # Add name fields in login forms whenever they are all blank
 
   # TODO change email address - may be a profile feature in tkh_mailing_list
   # TODO localize the whole process
