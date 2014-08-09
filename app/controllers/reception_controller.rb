@@ -1,6 +1,5 @@
 class ReceptionController < ApplicationController
 
-  # TODO login security for email non-validated
   # TODO Add name fields in login forms whenever they are all blank
   # TODO Add forgot your password link
   # TODO password reset
@@ -106,16 +105,20 @@ class ReceptionController < ApplicationController
   end
 
   def password_checking
-    # TODO security for email non-validated and nil password
     @user = User.find(params[:id])
     if @user
-      if @user.authenticate(params[:user][:password])
-        login_the_user
-        redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
-        destroy_target_page
-      else # most linkely wrong password
-        flash.now.alert = t('authentication.warning.email_or_password_invalid')
-        render "enter_your_password"
+      if @user.email_validated?
+        if @user.authenticate(params[:user][:password])
+          login_the_user
+          redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
+          destroy_target_page
+        else # most likely wrong password
+          flash.now.alert = t('authentication.warning.email_or_password_invalid')
+          render "enter_your_password"
+        end
+      else # email not validated
+        send_validation_email
+        redirect_to root_path, alert: 'Our records show that your email address has not been validated. We need you to do so before letting your log in.'
       end
     else # we can't find the user in the database
       flash[:alert] = "We were unable to find your email in the database. Please try again and make sure you are using a valid email address."

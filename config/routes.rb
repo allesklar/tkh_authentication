@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-    # legacy routes. Pointing to new pathway.
-    get 'signup', to: 'reception#email_input', as: 'signup'
-    get 'login', to: 'reception#email_input', as: 'login'
-    get 'logout', to: 'reception#disconnect', as: 'logout'
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
     resources :users do
       member do
@@ -16,6 +12,11 @@ Rails.application.routes.draw do
     resources :sessions
     resources :password_resets
 
+    ##### ACCESS CONTROL
+    # legacy routes. Pointing to new pathway.
+    get 'signup', to: 'reception#email_input', as: 'signup'
+    get 'login', to: 'reception#email_input', as: 'login'
+    get 'logout', to: 'reception#disconnect', as: 'logout'
     # New access control pathway
     get '/reception', to: 'reception#email_input', as: 'email_input'
     post '/parse_email', to: 'reception#parse_email'
@@ -25,5 +26,7 @@ Rails.application.routes.draw do
     get '/enter_your_password', to: 'reception#enter_your_password'
     post '/password_checking/:id', to: 'reception#password_checking', as: 'password_checking'
     get '/disconnect', to: 'reception#disconnect'
+
   end
+
 end

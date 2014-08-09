@@ -9,7 +9,7 @@
     <%= f.error_notification %>
 
     <%= f.input :email, autofocus: true, label: 'Please enter your email address' %>
-
+    <br />
     <%= f.button :submit, 'proceed', :class => 'btn btn-primary' %>
   <% end %>
 
@@ -21,3 +21,5 @@
   <p><%= link_to 'go to home page', root_path, class: 'btn btn-primary' %><%= link_to 'logout', disconnect_path, class: 'btn btn-default' %></p>
 
 <% end %>
+
+<br /><br />
