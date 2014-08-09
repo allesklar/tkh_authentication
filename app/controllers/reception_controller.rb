@@ -1,6 +1,6 @@
 class ReceptionController < ApplicationController
 
-  # TODO login security for email non-validated and nil password
+  # TODO login security for email non-validated
   # TODO Add name fields in login forms whenever they are all blank
   # TODO Add forgot your password link
   # TODO password reset
@@ -77,24 +77,27 @@ class ReceptionController < ApplicationController
   end
 
   def password_creation
-    @user = User.find(params[:id]) # FIXME Is this secure. Should we find user by password_creation_token ?
-    if params[:user][:password] == params[:user][:password_confirmation]
-
-      # TODO check for expiration of password_creation_token
-
-      # TODO security for email non-validated and nil password
-
-      if @user.update(user_params)
-        login_the_user
-        flash[:notice] = "Your new password was created and you have been logged in."
-        redirect_to session[:target_page] || root_path
-        destroy_target_page
-      else
-        flash[:alert] = "Some problems occurred while trying to create your password"
-        render create_your_password
+    @user = User.find(params[:id])
+    unless @user.blank?
+      if !params[:user][:password].blank? && (params[:user][:password] == params[:user][:password_confirmation])
+        if @user.password_creation_token_sent_at >= Time.zone.now - 1.hour # still valid token
+          if @user.update(user_params)
+            login_the_user
+            flash[:notice] = "Your new password was created and you have been logged in."
+            redirect_to session[:target_page] || root_path
+            destroy_target_page
+          else # did not update ?!?
+            flash[:alert] = "Some problems occurred while trying to create your password"
+            render create_your_password
+          end
+        else # the token has expired
+          redirect_to email_input_path, alert: 'Sorry, your password_creation_token. To protect your privacy and ensure your security, we need to ask you to start the process over again. The token, when created, expires after 1 hour!'
+        end
+      else # password is blank or password and password_confirmation don't match
+        redirect_to :back, alert: 'Your password cannot be blank and the password should be identical to the password confirmation. Please try again.'
       end
-    else # password and password_confirmation don't match
-      redirect_to :back, alert: 'Password and password confirmation values must match'
+    else # @user is blank
+      redirect_to email_input_path, alert: 'We could not find this user record in our database. Please start the process over.'
     end
   end
 
