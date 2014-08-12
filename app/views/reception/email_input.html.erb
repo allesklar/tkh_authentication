@@ -3,7 +3,7 @@
 
 <% unless current_user # most folks coming to this page should not be logged in %>
 
-  <h1>Login</h1>
+  <h1 id="login-header">Login</h1>
 
   <%= simple_form_for User.new, url: parse_email_path, html: { id: 'email-input-form' }, remote: true, method: 'post' do |f| %>
     <%= f.error_notification %>

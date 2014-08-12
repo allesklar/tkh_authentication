@@ -1,4 +1,36 @@
-// $('#email-input-form').slideUp(500);
-$('#email-input-form').replaceWith("<%= escape_javascript(render(:partial => 'reception/enter_your_password_form')) %>");
-$(".user_password").effect("highlight", { color: '#8D5530' }, 750);
-$('input#user_password').focus();
+<% if @status == 'enter_password' %>
+
+  $('h1#login-header').html('Please Enter Your Password');
+  $('#email-input-form').replaceWith("<%= escape_javascript(render(:partial => 'reception/enter_your_password_form')) %>");
+  $('h1').effect("highlight", { color: '#8D5530' }, 1000);
+  $(".user_password").effect("highlight", { color: '#8D5530' }, 1000);
+  $('input#user_password').focus();
+  $('.alert-danger').slideUp(750);
+
+<% elsif @status == 'email_validation' %>
+
+  $('h1#login-header').html('A Validation Email is Coming');
+  $('#email-input-form').replaceWith("<p class=\"validation-message\">We have sent you an email. Please check your inbox or your spam folder.</p>");
+  $('h1').effect("highlight", { color: '#8D5530' }, 1000);
+  $("p.validation-message").effect("highlight", { color: '#8D5530' }, 1000);
+  $('.alert-danger').slideUp(750);
+
+<% elsif @status == 'password_confirmation' %>
+
+  $('h1#login-header').html('A Password Creation Security Email is Coming');
+  $('#email-input-form').replaceWith("<p class=\"confirmation-message\">For your security we need to check that you truly are the owner of this account. Please check your inbox or spam folder.</p>");
+  $('h1').effect("highlight", { color: '#8D5530' }, 1000);
+  $("p.confirmation-message").effect("highlight", { color: '#8D5530' }, 1000);
+  $('.alert-danger').slideUp(750);
+
+<% elsif @status == 'blank_email' %>
+
+  $('h1#login-header').after('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>The email address CANNOT be blank.</div>');
+  $('.alert-danger').hide().slideDown(750);
+
+<% elsif @status == 'no_user_save' %>
+
+  $('h1#login-header').after('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a>We had problems creating your record. Please try again. Make sure the email address is valid.</div>');
+  $('.alert-danger').hide().slideDown(750);
+
+<% end %>

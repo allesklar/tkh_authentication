@@ -1,5 +1,7 @@
 class ReceptionController < ApplicationController
 
+  # FIXME - debugging mode now. The ajax call has messed conditions where I want HTML to be rendered.
+
   # TODO change email address - may be a profile feature in tkh_mailing_list
   # TODO change password -              ""
   # TODO localize the whole process
@@ -10,36 +12,57 @@ class ReceptionController < ApplicationController
   end
 
   def parse_email
-    @user = User.find_by(email: params[:user][:email])
-    if @user.blank? # first take care of the easy case with a completely new user
-      # create new record
-      @user = User.new(user_params)
-      if @user.save
-        send_validation_email
-        flash[:notice] = "Your record has been successfully created."
-        # show screen to user with notice about email validation
-        @status = 'email_validation_email_sent'
-      else # problem saving new user record for some reason
-        redirect_to email_input_path, alert: "We had problems creating your record. Please try again. Make sure the email address is valid."
-      end
-    else # the email address was already in the database
-      # Returning user pathway goes here
-      if @user.email_validated? && @user.has_a_password?
-        respond_to do |format|
-          format.html { redirect_to enter_your_password_path(auth_token: @user.auth_token) }
-          format.js {}
+    unless params[:user][:email].blank?
+      @user = User.find_by(email: params[:user][:email])
+      if @user.blank? # first take care of the easy case with a completely new user
+        # create new record
+        @user = User.new(user_params)
+        if @user.save
+          send_validation_email
+          @status = 'email_validation'
+          respond_to do |format|
+            format.html { flash[:notice] = "Your record has been successfully created." }
+            format.js {}
+          end
+        else # problem saving new user record for some reason
+          @status = 'no_user_save'
+          respond_to do |format|
+            format.html { flash[:alert] = "We had problems creating your record. Please try again. Make sure the email address is valid." }
+            format.js {}
+          end
         end
-      elsif @user.email_validated? && !@user.has_a_password? # doesn't have a password
-        # User needs to securily create a password
-        send_password_creation_security_email
-        flash[:notice] = "There is 1 last step!"
-        # show screen to user with notice about password confirmation email
-        @status = 'password_confirmation_email_sent'
-      elsif !@user.email_validated?
-        send_validation_email
-        flash[:notice] = "For your security, we need to verify your email address."
-        # show screen to user with notice about email validation
-        @status = 'email_validation_email_sent'
+      else # the email address was already in the database
+        # Returning user pathway goes here
+        if @user.email_validated? && @user.has_a_password?
+          @status = 'enter_password'
+          respond_to do |format|
+            format.html { redirect_to enter_your_password_path(auth_token: @user.auth_token) }
+            format.js {}
+          end
+        elsif @user.email_validated? && !@user.has_a_password? # doesn't have a password
+          # User needs to securily create a password
+          send_password_creation_security_email
+          # show screen to user with notice about password confirmation email
+          @status = 'password_confirmation'
+          respond_to do |format|
+            format.html { flash[:notice] = "There is 1 last step!" }
+            format.js {}
+          end
+        elsif !@user.email_validated?
+          send_validation_email
+          # show screen to user with notice about email validation
+          @status = 'email_validation'
+          respond_to do |format|
+            format.html { flash[:notice] = "For your security, we need to verify your email address." }
+            format.js {}
+          end
+        end
+      end
+    else # email is blank
+      @status = 'blank_email'
+      respond_to do |format|
+        format.html { flash[:alert] = "Your email address cannot be blank." }
+        format.js {}
       end
     end
   end
