@@ -2,6 +2,11 @@
 
 
 
+## 0.9.7
+
+* Created a whole new authentication pathway. Please run 'bundle update tkh_authentication' -> 'rake tkh_authentication:update' -> 'rake db:migrate'
+
+
 ## 0.9.6
 
 * Upgraded Rails and simple_form dependencies.

@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    tkh_authentication (0.9.6)
+    tkh_authentication (0.9.7)
       bcrypt (~> 3.1.7)
       rails (~> 4.1.0)
-      simple_form (~> 3.1.0.rc1)
+      simple_form (~> 3.1.0.rc2)
       stringex
 
 GEM
@@ -51,8 +51,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (5.3.3)
-    multi_json (1.9.2)
-    polyglot (0.3.4)
+    multi_json (1.10.1)
+    polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -72,7 +72,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.1)
-    simple_form (3.1.0.rc1)
+    simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     sprockets (2.12.1)
