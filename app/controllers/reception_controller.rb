@@ -101,7 +101,6 @@ class ReceptionController < ApplicationController
 
   def password_checking
     @user = User.find(params[:id])
-    @user.update(user_params) # should we test for failure?
     if @user
       if @user.email_validated?
         if @user.authenticate(params[:user][:password])
