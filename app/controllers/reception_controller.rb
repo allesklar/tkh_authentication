@@ -1,7 +1,5 @@
 class ReceptionController < ApplicationController
 
-  # TODO Ajaxify everything.
-
   # TODO change email address - may be a profile feature in tkh_mailing_list
   # TODO change password -              ""
   # TODO localize the whole process
