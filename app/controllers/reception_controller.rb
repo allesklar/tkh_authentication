@@ -29,8 +29,10 @@ class ReceptionController < ApplicationController
     else # the email address was already in the database
       # Returning user pathway goes here
       if @user.email_validated? && @user.has_a_password?
-        # flash[:notice] = "Please enter your password" # redundent
-        redirect_to enter_your_password_path(auth_token: @user.auth_token)
+        respond_to do |format|
+          format.html { redirect_to enter_your_password_path(auth_token: @user.auth_token) }
+          format.js {}
+        end
       elsif @user.email_validated? && !@user.has_a_password? # doesn't have a password
         # User needs to securily create a password
         send_password_creation_security_email

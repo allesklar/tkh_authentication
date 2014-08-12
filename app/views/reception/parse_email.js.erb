@@ -1,0 +1,3 @@
+// $('#email-input-form').slideUp(500);
+$('#email-input-form').replaceWith("<%= escape_javascript(render(:partial => 'reception/enter_your_password_form')) %>");
+$(".user_password").effect("highlight", { color: '#8D5530' }, 500);
