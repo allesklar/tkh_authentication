@@ -2,6 +2,11 @@
 
 
 
+## 0.9.8
+
+* Debugged the parse_email method. The remote true submitting of the form was interfering with many conditions.
+
+
 ## 0.9.7
 
 * Created a whole new authentication pathway. Please run 'bundle update tkh_authentication' -> 'rake tkh_authentication:update' -> 'rake db:migrate'
