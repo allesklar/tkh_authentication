@@ -1,7 +1,5 @@
 class ReceptionController < ApplicationController
 
-  # TODO Add name fields in login forms whenever they are all blank
-
   # TODO Ajaxify everything.
 
   # TODO change email address - may be a profile feature in tkh_mailing_list
