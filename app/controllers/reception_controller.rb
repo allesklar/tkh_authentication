@@ -116,7 +116,7 @@ class ReceptionController < ApplicationController
         end
       else # email not validated
         send_validation_email
-        redirect_to root_path, alert: 'Our records show that your email address has not been validated. We need you to do so before letting your log in.'
+        redirect_to root_path, alert: 'Our records show that your email address has not been validated. We need you to do so before letting your log in. Please check your email inbox or spam folder for an validation email.'
       end
     else # we can't find the user in the database
       flash[:alert] = "We were unable to find your email in the database. Please try again and make sure you are using a valid email address."
@@ -146,8 +146,8 @@ class ReceptionController < ApplicationController
 
   def password_reset
     @user = User.find(params[:id])
-    unless @user.blank?
-      if !params[:user][:password].blank? && (params[:user][:password] == params[:user][:password_confirmation])
+    if @user.present?
+      if params[:user][:password].present? && (params[:user][:password] == params[:user][:password_confirmation])
         if @user.password_reset_sent_at >= Time.zone.now - 1.hour # still valid token
           if @user.update(user_params)
             login_the_user
@@ -155,7 +155,7 @@ class ReceptionController < ApplicationController
             redirect_to session[:target_page] || root_path
             destroy_target_page
           else # did not update ?!?
-            flash[:alert] = "Some problems occurred while trying to change your password"
+            flash[:alert] = "Some problems occurred while trying to change your password. Please try again."
             render change_your_password
           end
         else # the token has expired
