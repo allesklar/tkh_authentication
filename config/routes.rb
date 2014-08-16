@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     ##### ACCESS CONTROL
-    # legacy routes. Pointing to new pathway.
+    # legacy routes. Pointing to new pathway. Keep them. They are semantically sound.
     get 'signup', to: 'reception#email_input', as: 'signup'
     get 'login', to: 'reception#email_input', as: 'login'
     get 'logout', to: 'reception#disconnect', as: 'logout'

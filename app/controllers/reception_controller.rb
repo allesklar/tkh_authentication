@@ -1,7 +1,5 @@
 class ReceptionController < ApplicationController
 
-  # FIXME - debugging mode now. The ajax call has messed conditions where I want HTML to be rendered.
-
   # TODO change email address - may be a profile feature in tkh_mailing_list
   # TODO change password -              ""
   # TODO localize the whole process
@@ -128,7 +126,8 @@ class ReceptionController < ApplicationController
       if @user.email_validated?
         if @user.authenticate(params[:user][:password])
           login_the_user
-          redirect_to (session[:target_page] || root_url), notice: t('authentication.login_confirmation')
+          flash[:notice] = t('authentication.login_confirmation')
+          redirect_user_upon_successful_login
           destroy_target_page
         else # most likely wrong password
           flash.now.alert = t('authentication.warning.email_or_password_invalid')
@@ -248,6 +247,19 @@ class ReceptionController < ApplicationController
       cookies.permanent[:auth_token] = @user.auth_token
     else
       cookies[:auth_token] = @user.auth_token
+    end
+  end
+
+  def redirect_user_upon_successful_login
+    if session[:target_page].present?
+      # add case when target pages is login page.
+      unless Rails.application.routes.recognize_path(session[:target_page])[:controller] == 'reception'
+        redirect_to session[:target_page]
+      else # the target page is the login or reception page
+        redirect_to root_url
+      end
+    else # no target page is set
+      redirect_to root_url
     end
   end
 
