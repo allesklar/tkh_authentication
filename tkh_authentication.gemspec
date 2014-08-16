@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/allesklar/tkh_authentication"
   s.summary     = "Simple authentication Rails engine."
   s.description = "A Rails engine for access control authentication customized for Ten Thousand Hours."
-  spec.license  = 'MIT'
+  s.license     = 'MIT'
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
   s.test_files = Dir["test/**/*"]
