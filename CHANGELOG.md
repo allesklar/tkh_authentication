@@ -2,6 +2,12 @@
 
 
 
+## 0.9.9
+
+* Upon succesful login, if target page is a reception page, redirect user to home page instead.
+* Extracted the email_input form to a partial which can be called from any page on top of being used in the login page.
+
+
 ## 0.9.8
 
 * Debugged the parse_email method. The remote true submitting of the form was interfering with many conditions.
