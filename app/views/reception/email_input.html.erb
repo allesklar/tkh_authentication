@@ -5,13 +5,7 @@
 
   <h1 id="login-header">Login</h1>
 
-  <%= simple_form_for User.new, url: parse_email_path, html: { id: 'email-input-form' }, remote: true, method: 'post' do |f| %>
-    <%= f.error_notification %>
-
-    <%= f.input :email, autofocus: true, label: 'Please enter your email address' %>
-    <br />
-    <%= f.button :submit, 'proceed', :class => 'btn btn-primary' %>
-  <% end %>
+  <%= render 'email_input_form' %>
 
 <% else # the user is already logged in %>
 
