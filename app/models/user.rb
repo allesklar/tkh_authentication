@@ -35,7 +35,13 @@ class User < ActiveRecord::Base
   end
 
   def spiritual_name
-    other_name.present? ? other_name : name
+    if other_name.present?
+      other_name
+    elsif name.present?
+      name
+    else
+      'anonymous'
+    end
   end
 
   def visible_name_present? # used in tkh_authentication to determin whether to show name fields in login form
