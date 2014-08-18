@@ -31,11 +31,11 @@ class User < ActiveRecord::Base
   end
 
   def friendly_name
-    other_name || first_name
+    other_name.present? ? other_name : first_name
   end
 
   def spiritual_name
-    other_name || name
+    other_name.present? ? other_name : name
   end
 
   def visible_name_present? # used in tkh_authentication to determin whether to show name fields in login form
