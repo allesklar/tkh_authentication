@@ -2,6 +2,12 @@
 
 
 
+
+## 0.9.10
+
+* Debugged friendly_name and spiritual_name virtual attributes in User model.
+
+
 ## 0.9.9
 
 * Upon succesful login, if target page is a reception page, redirect user to home page instead.
