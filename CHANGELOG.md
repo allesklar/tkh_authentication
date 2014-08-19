@@ -1,6 +1,9 @@
 # TKH Authentication
 
 
+## 0.9.11
+
+* Added a fallback string to spiritual_name virtual attribute in user model.
 
 
 ## 0.9.10
