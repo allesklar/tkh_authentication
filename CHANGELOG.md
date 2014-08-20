@@ -1,6 +1,12 @@
 # TKH Authentication
 
 
+
+## 0.9.12
+
+* Removed autofocus from email_input_form. When form was at the bottom of a page, the browser would scroll all the way down upon loading.
+
+
 ## 0.9.11
 
 * Added a fallback string to spiritual_name virtual attribute in user model.
