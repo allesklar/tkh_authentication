@@ -2,6 +2,11 @@
 
 
 
+## 0.9.13
+
+* Added user glyphicon next to user login info.
+
+
 ## 0.9.12
 
 * Removed autofocus from email_input_form. When form was at the bottom of a page, the browser would scroll all the way down upon loading.
