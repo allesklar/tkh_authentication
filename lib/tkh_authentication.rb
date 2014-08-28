@@ -4,6 +4,7 @@ require 'simple_form'
 require 'stringex'
 require 'tkh_authentication/tkh_authentication_action_controller_extension'
 require 'tkh_authentication/tkh_authentication_helper'
+require 'tkh_mailing_list'
 
 module TkhAuthentication
   class Engine < ::Rails::Engine

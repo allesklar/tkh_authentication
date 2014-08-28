@@ -47,14 +47,14 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.admin = true
     user.save
-    redirect_to users_path, notice: t('authentication.admin_enabled_confirmation')
+    redirect_to members_path, notice: t('authentication.admin_enabled_confirmation')
   end
 
   def remove_admin
     user = User.find(params[:id])
     user.admin = false
     user.save
-    redirect_to users_path, notice: t('authentication.admin_disabled_confirmation')
+    redirect_to members_path, notice: t('authentication.admin_disabled_confirmation')
   end
 
   private
