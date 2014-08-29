@@ -2,6 +2,12 @@
 
 
 
+## 0.9.14
+
+* Better integration with tkh_mailing_list gem.
+* Added a profile element to the drop down menu of the login info for navbar partial.
+
+
 ## 0.9.13
 
 * Added user glyphicon next to user login info.
