@@ -15,7 +15,7 @@
 	<tbody>
 		<% @users.each do |user| %>
 		  <tr>
-		    <td><%= link_to user.name, detail_path(user) %></td>
+		    <td><%= link_to user.name, member_path(user) %></td>
 				<td><%= user.email %></td>
 				<td>
 					<% unless user.admin? %>
@@ -24,7 +24,7 @@
 						<span class="label label-success">✓</span> <%= link_to t('authentication.disable_admin'), remove_admin_user_path(user), class: 'btn btn-xs btn-primary', method: :post %>
 					<% end -%>
 				</td>
-				<td><%= link_to t('edit'), edit_detail_path(user), class: 'btn btn-xs btn-default' %><%= link_to t('delete'), Detail.find(user.id), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-xs btn-danger' %></td>
+				<td><%= link_to t('edit'), edit_member_path(user), class: 'btn btn-xs btn-default' %><%= link_to t('delete'), Member.find(user.id), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-xs btn-danger' %></td>
 		  </tr>
 		<% end %>
 	</tbody>
