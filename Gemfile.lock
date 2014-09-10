@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tkh_authentication (0.9.14)
+    tkh_authentication (0.9.15)
       bcrypt (~> 3.1.7)
       rails (~> 4.1.0)
       simple_form (~> 3.1.0.rc2)

@@ -2,6 +2,11 @@
 
 
 
+## 0.9.15
+
+* Users index view links point to members controller as opposed to deprecated details controller. Upgrading the tkh_mailing_list connection
+
+
 ## 0.9.14
 
 * Better integration with tkh_mailing_list gem.
