@@ -2,6 +2,12 @@
 
 
 
+## 0.9.16
+
+* Loosened up dependency versioning.
+* Built navigation around login form.
+
+
 ## 0.9.15
 
 * Users index view links point to members controller as opposed to deprecated details controller. Upgrading the tkh_mailing_list connection
