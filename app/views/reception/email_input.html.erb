@@ -15,3 +15,7 @@
   <p><%= link_to 'go to home page', root_path, class: 'btn btn-primary' %><%= link_to 'logout', disconnect_path, class: 'btn btn-default' %></p>
 
 <% end %>
+
+<%= render 'admin_context_menu' %>
+<%# partial in tkh_menus gem or has to be added in host app %>
+<%= render './shared/menus' %>
