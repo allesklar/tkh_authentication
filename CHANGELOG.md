@@ -2,7 +2,7 @@
 
 
 
-## 0.9.17.1
+## 0.9.17.1 & 0.9.17.2
 
 * Removed bug from last edit.
 

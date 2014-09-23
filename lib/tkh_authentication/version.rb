@@ -1,3 +1,3 @@
 module TkhAuthentication
-  VERSION = "0.9.17.1"
+  VERSION = "0.9.17.2"
 end
