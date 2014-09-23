@@ -2,6 +2,11 @@
 
 
 
+## 0.9.17.1
+
+* Removed bug from last edit.
+
+
 ## 0.9.17
 
 * Debugged the redirect_to :back when there is no referer.
