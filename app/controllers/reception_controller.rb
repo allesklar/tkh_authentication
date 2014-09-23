@@ -109,10 +109,10 @@ class ReceptionController < ApplicationController
           redirect_to email_input_path, alert: 'Sorry, your password_creation_token has expired. To protect your privacy and ensure your security, we need to ask you to start the process over again. The token, when created, expires after 1 hour!'
         end
       else # password is blank or password and password_confirmation don't match
-        redirect_to :back, alert: 'Your password cannot be blank and the password should be identical to the password confirmation. Please try again.'
+        redirect_to_back_or_root, alert: 'Your password cannot be blank and the password should be identical to the password confirmation. Please try again.'
       end
     else # @user is blank
-      redirect_to email_input_path, alert: 'We could not find this user record in our database. Please start the process over.'
+      ( request.env["HTTP_REFERER"].present? ? redirect_to(:back) : redirect_to(root_path ), alert: 'We could not find this user record in our database. Please start the process over.'
     end
   end
 
