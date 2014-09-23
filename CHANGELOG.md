@@ -2,6 +2,11 @@
 
 
 
+## 0.9.17
+
+* Debugged the redirect_to :back when there is no referer.
+
+
 ## 0.9.16
 
 * Loosened up dependency versioning.
